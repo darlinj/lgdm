@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
 gem 'pg'
+gem 'fog', '0.5.0'
 
 group :development, :test do
   gem 'autotest'
