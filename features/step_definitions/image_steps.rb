@@ -32,3 +32,7 @@ Given %r/^there are server images available$/ do
   @bt.instance_variable_set(:@data, Fog::BT::Compute::Mock.data)
 
 end
+
+When %r/^I go to the list of images$/ do
+  visit(path_to("image list"))
+end
