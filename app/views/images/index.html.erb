@@ -1,0 +1,20 @@
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Platform</th>
+      <th>Architecture</th>
+      <th>Location</th>
+      <th>Owner</th>
+      <th>State</th>
+    </tr>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= link_to("EXP#{image.id}",edit_image_path(image.id)) %></td>
+        <td><%= image.platform%></td>
+        <td><%= image.architecture%></td>
+        <td><%= image.location%></td>
+        <td><%= image.owner%></td>
+        <td><%= image.state%></td>
+      </tr>
+    <% end %>
+  </table>

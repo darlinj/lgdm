@@ -36,3 +36,11 @@ end
 When %r/^I go to the list of images$/ do
   visit(path_to("image list"))
 end
+
+Then %r/^I should see the list of images$/ do
+  within("table") do
+    page.should have_content("pri-22222222")
+    page.should have_content("pri-ed1a8d0b")
+  end
+end
+
