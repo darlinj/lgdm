@@ -41,3 +41,10 @@ Then %r/^I should see the list of images$/ do
   end
 end
 
+When %r/^I click the server start button for a particular image$/ do
+  within(:css, "tr#pri-22222222") do
+    click_link("run")
+  end
+end
+
+

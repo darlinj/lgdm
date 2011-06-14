@@ -6,15 +6,17 @@
       <th>Location</th>
       <th>Owner</th>
       <th>State</th>
+      <th></th>
     </tr>
     <% @images.each do |image| %>
-      <tr>
+      <tr id=<%= image.id %>>
         <td><%= image.id %></td>
         <td><%= image.platform%></td>
         <td><%= image.architecture%></td>
         <td><%= image.location%></td>
         <td><%= image.owner_id%></td>
         <td><%= image.state%></td>
+        <td><%= link_to "run", servers_path, :image_id => image.id, :method => :post %></td>
       </tr>
     <% end %>
   </table>
