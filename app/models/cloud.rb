@@ -11,7 +11,7 @@ class Cloud
   private
 
   def self.connection
-    @@connection ||= Fog::Compute.new :provider => 'BT' 
+    @connection ||= Fog::Compute.new :provider => 'BT'
   end
 
 end
