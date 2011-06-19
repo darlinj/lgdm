@@ -1,6 +1,6 @@
 class ServersController < ApplicationController
   def index
-
+    @servers = Cloud.servers
   end
 
   def create

@@ -1,17 +1,24 @@
 class Cloud
-  def self.set_mock_images images
-    Fog::BT::Compute::Mock.data[:images] = images
-    connection.instance_variable_set(:@data, Fog::BT::Compute::Mock.data)
+  def initialize credentials
+    @provider             = credentials[:provider]
+    @region               = credentials[:region]
+    @bt_access_key_id     = credentials[:bt_access_key_id]
+    @bt_secret_access_key = credentials[:bt_secret_access_key]
   end
 
-  def self.images
+  def images
     connection.images
   end
 
-  private
+  def connection
+    Fog::Compute.new( :provider               => @provider,
+                      :region                 => @region,
+                      :bt_access_key_id       => @bt_access_key_id,
+                      :bt_secret_access_key   => @bt_secret_access_key)
+  end
 
-  def self.connection
-    @connection ||= Fog::Compute.new :provider => 'BT'
+  def servers
+    connection.servers
   end
 
 end

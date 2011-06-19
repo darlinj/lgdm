@@ -1,1 +1,20 @@
-Hello
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>IP</th>
+      <th>Image</th>
+      <th>Key Name</th>
+      <th>Group</th>
+      <th>State</th>
+    </tr>
+    <% @servers.each do |server| %>
+      <tr id=<%= server.id %>>
+        <td><%= server.id %></td>
+        <td><%= server.dns_name %></td>
+        <td><%= server.image_id%></td>
+        <td><%= server.key_name%></td>
+        <td><%= server.groups.first %></td>
+        <td><%= server.state%></td>
+      </tr>
+    <% end %>
+  </table>
