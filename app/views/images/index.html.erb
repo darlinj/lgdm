@@ -16,7 +16,7 @@
         <td><%= image.location%></td>
         <td><%= image.owner_id%></td>
         <td><%= image.state%></td>
-        <td><%= link_to "run", servers_path, :image_id => image.id, :method => :post %></td>
+        <td><%= link_to "run", servers_path(:image_id => image.id), :image_id => image.id, :method => :post %></td>
       </tr>
     <% end %>
   </table>

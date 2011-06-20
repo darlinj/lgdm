@@ -3,9 +3,9 @@ When %r/^I go to the list of servers$/ do
 end
 
 Then %r/^I should see that the server has been started$/ do
-  within(:css, "tr") do
-    page.should have_content("running")
+  within("table") do
+    #save_and_open_page
+    page.should have_content("pending")
     page.should have_content("pri-22222222")
   end
 end
-

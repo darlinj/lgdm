@@ -21,4 +21,8 @@ class Cloud
     connection.servers
   end
 
+  def run_image image_id
+    connection.servers.create( :image_id => image_id)
+  end
+
 end

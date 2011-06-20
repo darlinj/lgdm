@@ -74,3 +74,20 @@ describe Cloud, "servers" do
   end
 end
 
+describe Cloud, "run_image" do
+  before do
+    Fog.mock!
+    @compute = Cloud.new({:provider => "BT",:region => "some-region",
+              :bt_access_key_id => "some_access_key",
+              :bt_secret_access_key => "bibble"})
+  end
+
+  def do_request
+    @compute.run_image("AMI12345")
+  end
+
+  it 'should return an array of servers' do
+    do_request
+    @compute.servers.first.image_id.should == "AMI12345"
+  end
+end

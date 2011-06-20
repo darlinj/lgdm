@@ -32,4 +32,10 @@ Lgdm::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.provider             = "BT"
+  config.region               = "pi-baynard-stable"
+  config.bt_access_key_id     = "xbZzzvlujsdOBjWVHeuQ"
+  config.bt_secret_access_key = "dU53SYb0Hvn8qRxxprOf_G4HUJtNp3hctgnFJQ.."
+
 end

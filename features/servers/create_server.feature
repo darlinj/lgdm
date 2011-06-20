@@ -1,7 +1,7 @@
 Feature: Starting servers
   Creating a basic server
 
-  @wip
+
   Scenario: creating a server
     Given there are server images available
     When I go to the list of images

@@ -22,5 +22,10 @@ Lgdm::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  config.provider             = "BT"
+  config.region               = "pi-baynard-stable"
+  config.bt_access_key_id     = "xbZzzvlujsdOBjWVHeuQ"
+  config.bt_secret_access_key = "dU53SYb0Hvn8qRxxprOf_G4HUJtNp3hctgnFJQ.."
 end
 
