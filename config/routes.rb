@@ -3,4 +3,5 @@ Lgdm::Application.routes.draw do
   resources :servers, :only => [:index, :create]
   resources :images, :only => [:index]
   resources :users, :only => [:new, :create]
+  root :to => "pages#home"
 end

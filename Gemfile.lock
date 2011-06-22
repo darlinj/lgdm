@@ -64,6 +64,9 @@ GEM
     culerity (0.2.15)
     database_cleaner (0.6.7)
     diff-lcs (1.1.2)
+    email_spec (1.2.1)
+      mail (~> 2.2)
+      rspec (~> 2.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     excon (0.6.3)
@@ -175,6 +178,7 @@ DEPENDENCIES
   capybara
   cucumber-rails
   database_cleaner
+  email_spec
   fog (= 0.5.0)
   formtastic
   launchy
