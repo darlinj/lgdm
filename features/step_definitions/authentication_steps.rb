@@ -3,7 +3,10 @@ When %r/^I go to the sign\-up form$/ do
 end
 
 When %r/^I fill in valid user details$/ do
-  pending # express the regexp above with the code you wish you had
+  fill_in("Email", :with => "fred.flintstone@bedrock.com")
+  fill_in("Password", :with => "secret")
+  fill_in("Password confirmation", :with => "secret")
+  click_button("Register")
 end
 
 When %r/^I should get an email$/ do
