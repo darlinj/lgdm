@@ -30,5 +30,7 @@ Lgdm::Application.configure do
   config.bt_secret_access_key = "dU53SYb0Hvn8qRxxprOf_G4HUJtNp3hctgnFJQ.."
 
   config.email_sender         = "admin@leangreendeploymentmachine.com"
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
 

@@ -10,11 +10,12 @@ When %r/^I fill in valid user details$/ do
 end
 
 When %r/^I should get an email$/ do
+  debugger
   open_email("fred.flintstone@bedrock.com").should have_subject(/Welcome/)
 end
 
 When %r/^I click on the link in the email$/ do
-  pending # express the regexp above with the code you wish you had
+  click_first_link_in_email
 end
 
 Then %r/^I should be registered$/ do

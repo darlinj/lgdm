@@ -48,4 +48,5 @@ Lgdm::Application.configure do
   config.active_support.deprecation = :notify
 
   config.email_sender         = "admin@leangreendeploymentmachine.com"
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
