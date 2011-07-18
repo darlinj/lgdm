@@ -10,7 +10,6 @@ When %r/^I fill in valid user details$/ do
 end
 
 When %r/^I should get an email$/ do
-  debugger
   open_email("fred.flintstone@bedrock.com").should have_subject(/Welcome/)
 end
 
