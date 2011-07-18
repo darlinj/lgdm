@@ -30,3 +30,21 @@ describe UsersController, "create" do
   end
 
 end
+
+describe UsersController, "update" do
+  before do
+    user = User.create!(:email=>"joe.darling@doo.com" ,:password => "foobar", :password_confirmation => "foobar")
+    @token = user.perishable_token
+  end
+
+  def do_request
+    get :update, :token => @token
+  end
+
+  context "successful activation" do
+
+    subject { do_request; @controller    }
+      it    { should redirect_to(:root) }
+      it    { should set_the_flash.to(/Activation/) }
+  end
+end

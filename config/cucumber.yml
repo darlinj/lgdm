@@ -1,6 +1,6 @@
 
 default: --require features/support --require features/step_definitions
-ok: features --profile default --strict --tags ~@wip --tags ~@e2e --format Cucumber::Formatter::Fuubar --format html --out log/features_ok.html
-wip: features --profile default --tags @wip --wip --format Cucumber::Formatter::Fuubar --format html --out log/features_wip.html
-e2e: features --profile default --strict --tags @e2e --format Cucumber::Formatter::Fuubar --format html --out log/features_e2e.html
+ok: features --profile default --strict --tags ~@wip --tags ~@e2e --format html --out log/features_ok.html
+wip: features --profile default --tags @wip --wip --format html --out log/features_wip.html
+e2e: features --profile default --strict --tags @e2e --format html --out log/features_e2e.html
 
