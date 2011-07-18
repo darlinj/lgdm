@@ -1,33 +1,10 @@
 Given %r/^there are server images available$/ do
 
-  #@images = {'imageSet' => {
-    #'id'=>"pri-ed1a8d0b",
-    #'architecture'=>"x86_64",
-    #'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
-    #'owner_id'=>"joey",
-    #'state'=>"AVAILABLE",
-    #'type'=>"RAMDISK",
-    #'is_public'=>true,
-    #'kernel_id'=>nil,
-    #'platform'=>"linux",
-    #'ramdisk_id'=>nil
-  #},
-    #'bibbleet2' => {
-    #'id'=>"pri-22222222",
-    #'architecture'=>"x86_64",
-    #'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
-    #'owner_id'=>"joey",
-    #'state'=>"AVAILABLE",
-    #'type'=>"RAMDISK",
-    #'is_public'=>true,
-    #'kernel_id'=>nil,
-    #'platform'=>"linux",
-    #'ramdisk_id'=>nil
-  #}
-  #}
+  bt = Fog::Compute.new(:provider => 'BT', 
+                        :region =>"pi-baynard-stable", 
+                        :bt_access_key_id => Rails.application.config.bt_access_key_id,
+                        :bt_secret_access_key => Rails.application.config.bt_secret_access_key)
 
-  #Cloud.set_mock_images(@images)
-  bt = Fog::Compute.new(:provider => 'BT')
   bt.images
   Fog::BT::Compute::Mock.data["pi-baynard-stable"].first.last[:images] = {'imageSet' => { 'id'=>"pri-ed1a8d0b", 'architecture'=>"x86_64", 'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml", 'owner_id'=>"joey", 'state'=>"AVAILABLE", 'type'=>"RAMDISK", 'is_public'=>true, 'kernel_id'=>nil, 'platform'=>"linux", 'ramdisk_id'=>nil }, 'bibbleet2' => { 'id'=>"pri-22222222", 'architecture'=>"x86_64", 'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml", 'owner_id'=>"joey", 'state'=>"AVAILABLE", 'type'=>"RAMDISK", 'is_public'=>true, 'kernel_id'=>nil, 'platform'=>"linux", 'ramdisk_id'=>nil } }
 
