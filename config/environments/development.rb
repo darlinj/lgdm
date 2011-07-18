@@ -16,6 +16,7 @@ Lgdm::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :test
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -27,5 +28,7 @@ Lgdm::Application.configure do
   config.region               = "pi-baynard-stable"
   config.bt_access_key_id     = "xbZzzvlujsdOBjWVHeuQ"
   config.bt_secret_access_key = "dU53SYb0Hvn8qRxxprOf_G4HUJtNp3hctgnFJQ.."
+
+  config.email_sender         = "admin@leangreendeploymentmachine.com"
 end
 

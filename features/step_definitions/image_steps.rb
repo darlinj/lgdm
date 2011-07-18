@@ -1,7 +1,7 @@
 Given %r/^there are server images available$/ do
 
-  bt = Fog::Compute.new(:provider => 'BT', 
-                        :region =>"pi-baynard-stable", 
+  bt = Fog::Compute.new(:provider => 'BT',
+                        :region =>"pi-baynard-stable",
                         :bt_access_key_id => Rails.application.config.bt_access_key_id,
                         :bt_secret_access_key => Rails.application.config.bt_secret_access_key)
 
