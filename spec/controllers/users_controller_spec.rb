@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController, "create" do
   before do
-    @user = mock(User, :save => true)
+    @user = mock(User, :save => true, :reset_perishable_token! => true)
     User.stub(:new).and_return(@user)
   end
 

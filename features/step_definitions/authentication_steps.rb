@@ -21,3 +21,14 @@ Then %r/^I should be registered$/ do
   page.should have_content("Activation successful")
 end
 
+When /^I fill in valid login details$/ do
+  fill_in("Email", :with => "fred.flintstone@bedrock.com")
+  fill_in("Password", :with => "secret")
+  click_button("Log in")
+end
+
+Then /^I should be logged in$/ do
+  page.should have_content("Log out")
+  page.should have_content("fred.flintstone@bedrock.com")
+end
+

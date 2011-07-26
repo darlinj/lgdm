@@ -12,7 +12,7 @@ namespace :code do
     Rake::Task['code:trailing_spaces'].invoke
     Rake::Task['spec:rcov'].invoke
     Rake::Task['spec:rcov'].invoke
-    Rake::Task['code:run_roodi'].invoke
+    #Rake::Task['code:run_roodi'].invoke
     Rake::Task['spec'].invoke
     Rake::Task['cucumber:all'].invoke
   end
