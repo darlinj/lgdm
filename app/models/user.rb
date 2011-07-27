@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   def activate!
     self.active = true
+    UserSession.create!(self)
     save
   end
 
