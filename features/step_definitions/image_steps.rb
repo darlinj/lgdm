@@ -27,4 +27,7 @@ When %r/^I click the server start button for a particular image$/ do
   end
 end
 
+Then %r/^I should be on the images page$/ do
+  page.current_path.should == images_path
+end
 

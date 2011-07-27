@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe ImagesController, "index" do
   before do
+    stub_logged_in
     credentials = { :provider => Rails.application.config.provider,
                     :region => Rails.application.config.region,
                     :bt_access_key_id => Rails.application.config.bt_access_key_id,

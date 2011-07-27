@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe ServersController, "create" do
   before do
+    controller.stub(:authenticate).and_return(true)
     credentials = { :provider => Rails.application.config.provider,
                     :region => Rails.application.config.region,
                     :bt_access_key_id => Rails.application.config.bt_access_key_id,
@@ -27,6 +28,7 @@ end
 
 describe ServersController, "index" do
   before do
+    controller.stub(:authenticate).and_return(true)
     credentials = { :provider => Rails.application.config.provider,
                     :region => Rails.application.config.region,
                     :bt_access_key_id => Rails.application.config.bt_access_key_id,
