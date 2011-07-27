@@ -7,4 +7,5 @@ Feature: Signing up
     And I should get an email
     And I click on the link in the email
     Then I should be registered
+    And I should be logged in
 

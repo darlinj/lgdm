@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
 
   after_create :send_activation_email
 
+  def activate!
+    self.active = true
+    save
+  end
+
   private
   def send_activation_email
     Activation.activate(self).deliver

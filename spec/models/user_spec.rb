@@ -20,4 +20,13 @@ describe User, "create" do
 
 end
 
+describe User, "activate!" do
+  it "should set the active column to true" do
+    user = User.create!(:email => "something.that@lookslike.an.email.com", :password => "secret", :password_confirmation => "secret")
+    user.active.should be_false
+    user.activate!
+    user.active.should be_true
+  end
+end
+
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController, "create" do
   before do
-    @user = mock(User, :save => true, :reset_perishable_token! => true)
+    @user = mock(User, :save => true, :activate! => true)
     User.stub(:new).and_return(@user)
   end
 
@@ -14,6 +14,7 @@ describe UsersController, "create" do
     User.should_receive(:new).with(:params)
     do_request
   end
+
 
   it "should save the user" do
     @user.should_receive(:save)
@@ -33,18 +34,28 @@ end
 
 describe UsersController, "update" do
   before do
-    user = User.create!(:email=>"joe.darling@doo.com" ,:password => "foobar", :password_confirmation => "foobar")
-    @token = user.perishable_token
+    @user = mock(User, :activate! => true)
+    User.stub(:find_by_perishable_token).and_return(@user)
   end
 
   def do_request
-    get :update, :token => @token
+    get :update, :token => :some_token
   end
 
   context "successful activation" do
 
+    it "should find the user with the perishable token" do
+      User.should_receive(:find_by_perishable_token).with(:some_token)
+      do_request
+    end
+
+    it "should activate the user" do
+      @user.should_receive(:activate!)
+      do_request
+    end
+
     subject { do_request; @controller    }
-      it    { should redirect_to(:root) }
-      it    { should set_the_flash.to(/Activation/) }
+    it    { should redirect_to(:root) }
+    it    { should set_the_flash.to(/Activation/) }
   end
 end

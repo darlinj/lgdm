@@ -13,10 +13,8 @@ class UsersController < ApplicationController
 
   def update
     user = User.find_by_perishable_token(params[:token])
-    #user.reset_perishable_token!
     if user
-      #user.active = true
-      #user.save
+      user.activate!
       flash[:success] = "Activation successful"
       redirect_to :root
     end
