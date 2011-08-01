@@ -1,3 +1,10 @@
+# Needs to be done first
+require "simplecov"
+SimpleCov.coverage_dir 'log/coverage/rspec'
+SimpleCov.start 'rails' do
+  add_filter "/factories/"
+end
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)

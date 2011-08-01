@@ -14,10 +14,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
-  gem 'rcov'
   gem 'roodi'
   gem 'rspec-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'shoulda'
+  gem 'simplecov'
 end
 

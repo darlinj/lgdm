@@ -5,15 +5,15 @@ CLEAN.include %w(log/** tmp/** coverage)
 
 namespace :code do
 
-  desc "Cleans & checks trailing spaces, rspec, rcov, roodi, cucumber"
+  desc "Cleans & checks trailing spaces, rspec, coverage, roodi, cucumber"
   task :run_checks => [:clean] do
     ENV['RAILS_ENV'] = 'test'
     Rake::Task['db:migrate'].invoke
     Rake::Task['code:trailing_spaces'].invoke
-    Rake::Task['spec:rcov'].invoke
-    Rake::Task['spec:rcov'].invoke
     #Rake::Task['code:run_roodi'].invoke
     Rake::Task['spec'].invoke
+    Rake::Task['coverage:check_specs'].invoke
+    Rake::Task['coverage:check_cucumber'].invoke
     Rake::Task['cucumber:all'].invoke
   end
 
