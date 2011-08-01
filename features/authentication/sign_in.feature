@@ -14,3 +14,11 @@ Feature: Login in
     When I fill in valid login details
     Then I should be on the images page
     And I should be logged in
+
+@wip
+  Scenario: failing to log in
+    Given there is a user
+    When I enter the wrong password 
+    Then I should see a log in failure message
+    And I should be on the sign in page
+
