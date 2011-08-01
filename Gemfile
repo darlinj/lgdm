@@ -5,6 +5,7 @@ gem 'pg'
 gem 'fog', '0.5.0'
 gem 'formtastic'
 gem 'authlogic'
+gem 'rake', '0.8.7'
 
 group :development, :test do
   gem 'autotest'
