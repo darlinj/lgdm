@@ -1,5 +1,19 @@
 require 'spec_helper'
 
+describe UsersController, "new" do
+  before do
+    User.stub(:new).and_return(:some_user)
+  end
+
+  def do_request
+    get :new
+  end
+
+  subject { do_request; @controller                  }
+    it    { should assign_to(:user).with(:some_user) }
+    it    { should render_template(:new)             }
+end
+
 describe UsersController, "create" do
   before do
     @user = mock(User, :save => true, :activate! => true)
