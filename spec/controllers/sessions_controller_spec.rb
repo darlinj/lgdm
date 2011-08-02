@@ -32,3 +32,18 @@ describe SessionsController, "create - sucessful login" do
   subject { do_request; @controller    }
     it    { should redirect_to(:root) }
 end
+
+describe SessionsController, "create - unsuccessful login" do
+  let(:session) {mock(UserSession, :save => false)}
+  before do
+    UserSession.stub(:new).and_return(session)
+  end
+
+  def do_request
+    post :create, :user_session => :login_details
+  end
+
+  subject { do_request; @controller     }
+    it    { should render_template(:new)}
+    it    { should set_the_flash.to(/unsuccessful/) }
+end

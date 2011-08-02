@@ -44,3 +44,14 @@ Then %r/^I should be on the sign in page$/ do
   page.should have_content("Login")
 end
 
+When %r/^I enter the wrong password$/ do
+  visit(path_to("login"))
+  fill_in("Email", :with => "fred.flintstone@bedrock.com")
+  fill_in("Password", :with => "wrongpassword")
+  click_button("Log in")
+end
+
+Then %r/^I should see a log in failure message$/ do
+  page.should have_content("Login unsuccessful")
+end
+

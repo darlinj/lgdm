@@ -7,8 +7,12 @@ class SessionsController < ApplicationController
 
   def create
     @user_session = UserSession.new(params[:user_session])
-    @user_session.save
-    return_to_page_requested_or root_url
+    if @user_session.save
+      return_to_page_requested_or root_url
+    else
+      flash[:error] = "Login unsuccessful. Please try again"
+      render :action=>:new
+    end
   end
 
 end

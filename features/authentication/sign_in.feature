@@ -18,7 +18,7 @@ Feature: Login in
 @wip
   Scenario: failing to log in
     Given there is a user
-    When I enter the wrong password 
+    When I enter the wrong password
     Then I should see a log in failure message
     And I should be on the sign in page
 
