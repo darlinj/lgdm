@@ -15,7 +15,6 @@ Feature: Login in
     Then I should be on the images page
     And I should be logged in
 
-@wip
   Scenario: failing to log in
     Given there is a user
     When I enter the wrong password
