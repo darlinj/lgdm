@@ -55,3 +55,27 @@ Then %r/^I should see a log in failure message$/ do
   page.should have_content("Login unsuccessful")
 end
 
+When %r/^I fill in a bad email address$/ do
+  visit(path_to("signup page"))
+  fill_in("Email", :with => "fred.flintstone.bedrock.com")
+  fill_in("Password", :with => "secret")
+  fill_in("Password confirmation", :with => "secret")
+  click_button("Register")
+end
+
+Then %r/^I should see an error about the email$/ do
+  page.should have_content("Email should look like an email")
+end
+
+When %r/^I fill in a non\-matching passwords$/ do
+  visit(path_to("signup page"))
+  fill_in("Email", :with => "fred.flintstone@bedrock.com")
+  fill_in("Password", :with => "match")
+  fill_in("Password confirmation", :with => "two_halves")
+  click_button("Register")
+end
+
+Then %r/^I should see an error about non\-matching passwords$/ do
+  page.should have_content("Password doesn't match confirmation")
+end
+

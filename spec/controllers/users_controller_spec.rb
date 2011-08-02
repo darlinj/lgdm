@@ -35,7 +35,7 @@ describe UsersController, "create" do
     do_request
   end
 
-  context "successful login" do
+  context "successful user create" do
 
     subject { do_request; @controller    }
       it    { should redirect_to(:root) }
@@ -44,6 +44,17 @@ describe UsersController, "create" do
 
   end
 
+  context "unsucessful user create"  do
+    before do
+      @user = mock(User, :save => false)
+      User.stub(:new).and_return(@user)
+    end
+
+    subject { do_request; @controller    }
+      it    { should render_template(:new) }
+      it    { should assign_to(:user).with(@user) }
+      it    { should set_the_flash.to(/unsuccessful/) }
+  end
 end
 
 describe UsersController, "update" do

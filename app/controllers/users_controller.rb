@@ -5,11 +5,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(params[:user])
-    #user.reset_perishable_token!
-    user.save#_without_session_maintenance
-    flash[:success] = "Registration successful.  You will shortly receive an email that will allow you to activate your account."
-    redirect_to :root
+    @user = User.new(params[:user])
+    if @user.save
+      flash[:success] = "Registration successful.  You will shortly receive an email that will allow you to activate your account."
+      redirect_to :root
+    else
+      flash[:success] = "Registration unsuccessful."
+      render :action => :new
+    end
   end
 
   def update

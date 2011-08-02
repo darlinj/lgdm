@@ -1,3 +1,4 @@
+<%= @user.errors.full_messages %>
 <%= semantic_form_for(@user) do |form| %>
   <%= form.inputs do %>
     <%= form.input :email %>
