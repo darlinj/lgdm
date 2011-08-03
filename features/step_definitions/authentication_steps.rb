@@ -79,3 +79,11 @@ Then %r/^I should see an error about non\-matching passwords$/ do
   page.should have_content("Password doesn't match confirmation")
 end
 
+When %r/^I click on the log out link$/ do
+  click_link("Log out")
+end
+
+Then %r/^I should be logged out$/ do
+  page.should have_content("Login")
+end
+

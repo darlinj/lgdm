@@ -47,3 +47,19 @@ describe SessionsController, "create - unsuccessful login" do
     it    { should render_template(:new)}
     it    { should set_the_flash.to(/unsuccessful/) }
 end
+
+describe SessionsController, "destroy - logout" do
+  before do
+    stub_logged_in
+    session = mock(UserSession, :destroy => true)
+    controller.stub(:current_user_session).and_return(session)
+  end
+
+  def do_request
+    delete :destroy
+  end
+
+  subject { do_request; @controller     }
+    it    { should redirect_to(:root)             }
+    it    { should set_the_flash.to(/logged out/) }
+end
