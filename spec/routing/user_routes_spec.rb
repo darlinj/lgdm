@@ -8,4 +8,5 @@ describe UsersController, "routing" do
     {:post => '/users'           }.should route_to(:controller => "users", :action => "create")
   end
 
+
 end

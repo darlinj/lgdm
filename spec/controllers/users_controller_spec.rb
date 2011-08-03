@@ -84,3 +84,4 @@ describe UsersController, "update" do
     it    { should set_the_flash.to(/Activation/) }
   end
 end
+
