@@ -1,0 +1,75 @@
+body {
+  background-color: #a5ffa5
+}
+
+.header {
+  width: 80%;
+  margin: auto;
+  background-image: url("/images/main_background.png")
+}
+
+.status {
+  display: inline;
+  float: right;
+}
+
+.content {
+  width: 80%;
+  margin: auto;
+  background-color: #e2ffe3;
+  padding: 10px;
+}
+
+/*Table layouts */
+
+table
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 45px;
+	width: 480px;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+thead th.top-left
+{
+	background: #00d300 url('/images/left.png') left -1px no-repeat;
+}
+
+thead th.top-right
+{
+	background: #00d300 url('/images/right.png') right -1px no-repeat;
+}
+
+th
+{
+	padding: 8px;
+	font-weight: normal;
+	font-size: 13px;
+	color: #039;
+	background: #00d300;
+}
+
+td
+{
+	padding: 8px;
+	background: #a5ffa5;
+	border-top: 1px solid #fff;
+	color: #669;
+}
+
+tfoot td.rounded-foot-left
+{
+	background: #a5ffa5 url('/images/botleft.png') left bottom no-repeat;
+}
+
+tfoot td.rounded-foot-right
+{
+	background: #a5ffa5 url('/images/botright.png') right bottom no-repeat;
+}
+
+tbody tr:hover td
+{
+	background: #00f300;
+}

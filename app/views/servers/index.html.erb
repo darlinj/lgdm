@@ -1,12 +1,15 @@
-  <table>
+<table>
+  <thead>
     <tr>
-      <th>ID</th>
+      <th class="top-left">ID</th>
       <th>IP</th>
       <th>Image</th>
       <th>Key Name</th>
       <th>Group</th>
-      <th>State</th>
+      <th class="top-right">State</th>
     </tr>
+  </thead>
+  <tbody>
     <% @servers.each do |server| %>
       <tr id=<%= server.id %>>
         <td><%= server.id %></td>
@@ -17,4 +20,12 @@
         <td><%= server.state%></td>
       </tr>
     <% end %>
-  </table>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td class="rounded-foot-left"></td>
+      <td colspan="4"></td>
+      <td class="rounded-foot-right"></td>
+    </tr>
+  </tfoot>
+</table>

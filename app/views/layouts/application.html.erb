@@ -7,22 +7,26 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div>
+  <div class="header">
+    <img src="/images/lgdm_logo.png" />
+    <div class="status">
     <% if !current_user %>
       <%= link_to "Register", new_user_path %> |
       <%= link_to "Log In", login_path %> |
     <% else %>
-        <%= current_user.email %><%= link_to "Log out", session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
+        <%= current_user.email %> | <%= link_to "Log out", session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
     <% end %>
+    </div>
   </div>
+  <div class="content">
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag(:div, :class =>"flash #{name}", :id => "flash_#{name}") do -%>
+        <%= content_tag :p, msg -%>
+      <% end -%>
+    <%- end -%>
 
-  <%- flash.each do |name, msg| -%>
-    <%= content_tag(:div, :class =>"flash #{name}", :id => "flash_#{name}") do -%>
-      <%= content_tag :p, msg -%>
-    <% end -%>
-  <%- end -%>
-
-  <%= yield %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
