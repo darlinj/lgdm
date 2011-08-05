@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726165934) do
+ActiveRecord::Schema.define(:version => 20110805100011) do
+
+  create_table "cloud_accounts", :force => true do |t|
+    t.string  "label",          :null => false
+    t.string  "provider",       :null => false
+    t.string  "s3_url"
+    t.string  "ec2_url",        :null => false
+    t.string  "ec2_access_key", :null => false
+    t.string  "ec2_secret_key", :null => false
+    t.integer "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :null => false

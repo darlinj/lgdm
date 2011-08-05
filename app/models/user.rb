@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :cloud_accounts
   acts_as_authentic do |c|
     c.login_field = :email
   end
-  #disable_perishable_token_maintenance(true)
+
 
   after_create :send_activation_email
 

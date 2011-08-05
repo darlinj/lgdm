@@ -1,0 +1,36 @@
+<h1> List of cloud accounts </h1>
+<% if @cloud_accounts %>
+  <table>
+    <thead>
+      <tr>
+        <th class="top-left">Label</th>
+        <th>Provider</th>
+        <th>S3 URL</th>
+        <th>Ec2 URL</th>
+        <th>Access key</th>
+        <th class="top-right">Secret key</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cloud_accounts.each do |account| %>
+        <tr id=<%= account.id %>>
+          <td><%= account.label%></td>
+          <td><%= account.provider%></td>
+          <td><%= account.s3_url%></td>
+          <td><%= account.ec2_url%></td>
+          <td><%= account.ec2_access_key%></td>
+          <td><%= account.ec2_secret_key%></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="rounded-foot-left"></td>
+        <td colspan="4"></td>
+        <td class="rounded-foot-right"></td>
+      </tr>
+    </tfoot>
+  </table>
+<% else %>
+  You currently have no cloud accounts registered
+<% end %>
