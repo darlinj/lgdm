@@ -7,8 +7,8 @@ task :default do
   Rake::Task['code:trailing_spaces'].invoke
   #Rake::Task['code:run_roodi'].invoke
   Rake::Task['spec'].invoke
-  Rake::Task['coverage:check_specs'].invoke
   Rake::Task['cucumber:all'].invoke
+  Rake::Task['coverage:check_coverage'].invoke
   Rake::Task[:ok].invoke
 end
 

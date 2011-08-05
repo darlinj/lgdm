@@ -1,4 +1,4 @@
-class Image < ActiveRecord::Base
+class Image
   def self.all
     Cloud.images
   end

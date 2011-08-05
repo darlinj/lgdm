@@ -8,7 +8,6 @@ Spork.prefork do
 
   # Needs to be done first
   require "simplecov"
-  SimpleCov.coverage_dir 'log/coverage/rspec'
   SimpleCov.start 'rails' do
     add_filter "/factories/"
   end
