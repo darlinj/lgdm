@@ -9,6 +9,7 @@ gem 'rake', '0.8.7'
 
 group :development, :test do
   gem 'autotest'
+  gem 'autotest-rails'
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'database_cleaner'
@@ -19,6 +20,6 @@ group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'shoulda'
   gem 'simplecov'
-  gem 'spork'
+  gem 'spork', '0.9.0.rc8'
 end
 
