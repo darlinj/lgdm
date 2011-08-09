@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     save
   end
 
+  def create_cloud_account(params)
+    cloud_accounts.create(params)
+  end
+
   private
   def send_activation_email
     Activation.activate(self).deliver

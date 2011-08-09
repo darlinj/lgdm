@@ -1,0 +1,14 @@
+<%= @cloud_account.errors.full_messages %>
+<%= semantic_form_for(@cloud_account) do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :label          %>
+    <%= form.input :provider       %>
+    <%= form.input :s3_url         %>
+    <%= form.input :ec2_url        %>
+    <%= form.input :ec2_access_key %>
+    <%= form.input :ec2_secret_key %>
+  <% end %>
+  <%= form.buttons do%>
+    <%= form.submit("Create") %>
+  <% end %>
+<% end %>

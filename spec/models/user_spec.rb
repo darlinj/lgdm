@@ -38,4 +38,25 @@ describe User, "activate!" do
   end
 end
 
+describe User, "create_cloud_account" do
+  before do
+    @user = User.create!(:email => "something.that@lookslike.an.email.com", :password => "secret", :password_confirmation => "secret")
+    @params = {"label"=>"my_account", "provider"=>"FOOO", "s3_url"=>"http://some.address:999/foo", "ec2_url"=>"http://some.address:999/foo", "ec2_access_key"=>"blahblahblahblahblahblahblah", "ec2_secret_key"=>"blahblahblahblahblahblahblah"}
+  end
+
+  def do_request
+    @user.create_cloud_account(@params)
+    CloudAccount.find_by_label("my_account")
+  end
+
+  it "should create an account with the params supplied" do
+    do_request.provider.should == "FOOO"
+  end
+
+  it "should set the user association" do
+    cloud_account = do_request
+    @user.cloud_accounts.should include(cloud_account)
+  end
+end
+
 

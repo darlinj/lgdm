@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     user = User.find_by_perishable_token(params[:token])
     if user
       user.activate!
-      flash[:success] = "Activation successful"
+      flash[:error] = "Activation successful"
       redirect_to :root
     end
   end
