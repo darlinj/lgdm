@@ -72,6 +72,11 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     excon (0.6.3)
+    factory_girl (2.0.3)
+    factory_girl_generator (0.0.3)
+    factory_girl_rails (1.1.0)
+      factory_girl (~> 2.0.0)
+      railties (>= 3.0.0)
     ffi (1.0.9)
     fog (0.5.0)
       builder
@@ -185,6 +190,8 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   email_spec
+  factory_girl_generator
+  factory_girl_rails
   fog (= 0.5.0)
   formtastic
   launchy
