@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20110805100011) do
   create_table "cloud_accounts", :force => true do |t|
     t.string  "label",          :null => false
     t.string  "provider",       :null => false
+    t.string  "region",         :null => false
     t.string  "s3_url"
     t.string  "ec2_url",        :null => false
     t.string  "ec2_access_key", :null => false

@@ -1,5 +1,5 @@
 Given %r/^I am logged in$/ do
-  User.create!(:email => "fred.flintstone@bedrock.com", :password => "secret", :password_confirmation => "secret", :active => true)
+  @current_user = Factory(:user)
   visit(path_to("login"))
   fill_in("Email", :with => "fred.flintstone@bedrock.com")
   fill_in("Password", :with => "secret")

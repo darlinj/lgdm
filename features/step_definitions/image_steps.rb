@@ -1,12 +1,37 @@
 Given %r/^there are server images available$/ do
+  cloud_account = Factory(:cloud_account, :region=>"pi-baynard-stable", :user_id => @current_user.id)
 
   bt = Fog::Compute.new(:provider => 'BT',
                         :region =>"pi-baynard-stable",
-                        :bt_access_key_id => Rails.application.config.bt_access_key_id,
-                        :bt_secret_access_key => Rails.application.config.bt_secret_access_key)
+                        :bt_access_key_id => cloud_account.ec2_access_key,
+                        :bt_secret_access_key => cloud_account.ec2_secret_key)
 
   bt.images
-  Fog::BT::Compute::Mock.data["pi-baynard-stable"].first.last[:images] = {'imageSet' => { 'id'=>"pri-ed1a8d0b", 'architecture'=>"x86_64", 'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml", 'owner_id'=>"joey", 'state'=>"AVAILABLE", 'type'=>"RAMDISK", 'is_public'=>true, 'kernel_id'=>nil, 'platform'=>"linux", 'ramdisk_id'=>nil }, 'bibbleet2' => { 'id'=>"pri-22222222", 'architecture'=>"x86_64", 'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml", 'owner_id'=>"joey", 'state'=>"AVAILABLE", 'type'=>"RAMDISK", 'is_public'=>true, 'kernel_id'=>nil, 'platform'=>"linux", 'ramdisk_id'=>nil } }
+  Fog::BT::Compute::Mock.data["pi-baynard-stable"].first.last[:images] =
+    {'imageSet' =>
+      { 'id'=>"pri-ed1a8d0b",
+        'architecture'=>"x86_64",
+        'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
+        'owner_id'=>"joey",
+        'state'=>"AVAILABLE",
+        'type'=>"RAMDISK",
+        'is_public'=>true, #
+        'kernel_id'=>nil,
+        'platform'=>"linux",
+        'ramdisk_id'=>nil
+      },
+        'bibbleet2' => {
+        'id'=>"pri-22222222",
+        'architecture'=>"x86_64",
+        'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
+        'owner_id'=>"joey",
+        'state'=>"AVAILABLE",
+        'type'=>"RAMDISK",
+        'is_public'=>true,
+        'kernel_id'=>nil,
+        'platform'=>"linux",
+        'ramdisk_id'=>nil
+      } }
 
 end
 
