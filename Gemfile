@@ -1,10 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
-gem 'pg'
+gem 'authlogic'
 gem 'fog', '0.5.0'
 gem 'formtastic'
-gem 'authlogic'
+gem "jquery-rails"
+gem 'pg'
+gem 'rails', '3.0.7'
 gem 'rake', '0.8.7'
 
 group :development, :test do
