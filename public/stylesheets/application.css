@@ -34,12 +34,10 @@ body {
   float: left;
   width: 11em;
   display: block;
-	color: #039;
-  text-decoration: none;
-  text-align: right;
   margin-bottom: 5px;
   margin-left: 5px;
-  font-family: Arial,Verdana,Tahoma,Helvetica,sans-serif;
+  text-decoration: none;
+  text-align: right;
 }
 
 .main-section {
@@ -48,6 +46,10 @@ body {
 }
 
 .content {
+  font-family: Arial,Verdana,Tahoma,Helvetica,sans-serif;
+	color: #039;
+  text-decoration: none;
+  text-align: center;
   width: 800px;
   height: 600px;
   margin: auto;
