@@ -12,9 +12,9 @@
     <div class="status">
     <% if !current_user %>
       <%= link_to "Register", new_user_path %> |
-      <%= link_to "Log In", login_path %> |
+      <%= link_to "Log in", login_path %> |
     <% else %>
-      <%= current_user.email %> | <%= link_to("Log out", session_path, :method => :delete)%>
+      <%= current_user.email %> | <%= link_to("Log out", logout_path)%>
     <% end %>
     </div>
   </div>

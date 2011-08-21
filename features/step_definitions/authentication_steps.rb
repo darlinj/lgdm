@@ -84,6 +84,6 @@ When %r/^I click on the log out link$/ do
 end
 
 Then %r/^I should be logged out$/ do
-  page.should have_content("Login")
+  page.should have_content("Log in")
 end
 
