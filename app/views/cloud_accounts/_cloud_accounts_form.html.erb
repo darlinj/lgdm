@@ -1,4 +1,4 @@
-<%= @cloud_account.errors.full_messages %>
+<%= @cloud_account.errors.full_messages unless @cloud_account.errors.empty? %>
 <%= semantic_form_for(@cloud_account) do |form| %>
   <%= form.inputs do %>
     <%= form.input :label          %>

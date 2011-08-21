@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Lgdm</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-  <div class="header">
-    <img src="/images/lgdm_logo.png" />
-    <div class="status">
-    <% if !current_user %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Log in", login_path %> |
-    <% else %>
-      <%= current_user.email %> | <%= link_to("Log out", logout_path)%>
-    <% end %>
+  <head>
+    <title>Lgdm</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :all %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div class="header">
+      <img src="/images/lgdm_logo.png" />
+      <div class="status">
+        <% if !current_user %>
+          <%= link_to "Register", new_user_path %> |
+          <%= link_to "Log in", login_path %> |
+        <% else %>
+          <%= current_user.email %> | <%= link_to("Log out", logout_path)%>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="content">
-    <%- flash.each do |name, msg| -%>
-      <%= content_tag(:div, :class =>"flash #{name}", :id => "flash_#{name}") do -%>
-        <%= content_tag :p, msg -%>
-      <% end -%>
-    <%- end -%>
 
-    <%= yield %>
-  </div>
+    <div class="content">
+      <% if current_user %>
+        <div id="menu">
+          <ul>
+            <li><%= link_to "cloud accounts", cloud_accounts_path %></li>
+            <li><%= link_to "images", images_path %></li>
+          </ul>
+        </div>
+      <% end %>
 
-</body>
+      <div class="main-section">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag(:div, :class =>"flash #{name}", :id => "flash_#{name}") do -%>
+            <%= content_tag :p, msg -%>
+          <% end -%>
+        <%- end -%>
+
+        <%= yield %>
+      </div>
+    </div>
+
+  </body>
 </html>

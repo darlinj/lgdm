@@ -3,7 +3,7 @@ body {
 }
 
 .header {
-  width: 80%;
+  width: 820px;
   margin: auto;
   background-image: url("/images/main_background.png")
 }
@@ -13,8 +13,43 @@ body {
   float: right;
 }
 
+
+#menu {
+  width: 20%;
+  float: left;
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu li a
+{
+  background: #a5ffa5 center left no-repeat;
+  padding-right: 10px;
+  height: 2em;
+  line-height: 2em;
+  float: left;
+  width: 11em;
+  display: block;
+	color: #039;
+  text-decoration: none;
+  text-align: right;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-family: Arial,Verdana,Tahoma,Helvetica,sans-serif;
+}
+
+.main-section {
+  float: right;
+  width: 570px;
+}
+
 .content {
-  width: 80%;
+  width: 800px;
+  height: 600px;
   margin: auto;
   background-color: #e2ffe3;
   padding: 10px;
