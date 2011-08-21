@@ -1,36 +1,47 @@
 <h1> cloud accounts </h1>
-<% if @cloud_accounts %>
-  <table>
-    <thead>
-      <tr>
-        <th class="top-left">Label</th>
-        <th>Provider</th>
-        <th>S3 URL</th>
-        <th>Ec2 URL</th>
-        <th>Access key</th>
-        <th class="top-right">Secret key</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @cloud_accounts.each do |account| %>
+<% if @cloud_accounts && !@cloud_accounts.empty? %>
+  <% @cloud_accounts.each do |account| %>
+    <table>
+      <thead>
         <tr id=<%= account.id %>>
-          <td><%= account.label%></td>
+          <th class="top-left">Label</th>
+          <td class="top-right"><%= account.label%></td>
+        </tr>
+        <tr>
+          <th>provider</th>
           <td><%= account.provider%></td>
+        </tr>
+        <tr>
+          <th>region</th>
+          <td><%= account.region%></td>
+        </tr>
+        <tr>
+          <th>S3 URL</th>
           <td><%= account.s3_url%></td>
+        </tr>
+        <tr>
+          <th>Ec2 URL</th>
           <td><%= account.ec2_url%></td>
+        </tr>
+        <tr>
+          <th>Access key</th>
           <td><%= account.ec2_access_key%></td>
+        </tr>
+        <tr>
+          <th>Secret key</th>
           <td><%= account.ec2_secret_key%></td>
         </tr>
-      <% end %>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td class="rounded-foot-left"></td>
-        <td colspan="4"></td>
-        <td class="rounded-foot-right"></td>
-      </tr>
-    </tfoot>
-  </table>
+      </thead>
+      <tfoot>
+        <tr>
+          <th class="rounded-foot-left"></th>
+          <td class="rounded-foot-right"></td>
+        </tr>
+      </tfoot>
+    </table>
+  <% end %>
 <% else %>
   You currently have no cloud accounts registered
 <% end %>
+<div>
+  <%= link_to "Add cloud account", new_cloud_account_path %>

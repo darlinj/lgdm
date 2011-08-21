@@ -69,14 +69,15 @@ table
 	border-collapse: collapse;
 }
 
-thead th.top-left
+thead .top-left
 {
 	background: #00d300 url('/images/left.png') left -1px no-repeat;
 }
 
-thead th.top-right
+thead .top-right
 {
-	background: #00d300 url('/images/right.png') right -1px no-repeat;
+	background: #a5ffa5 url('/images/right.png') right -1px no-repeat;
+  border-top: 0px;
 }
 
 th
@@ -96,12 +97,12 @@ td
 	color: #669;
 }
 
-tfoot td.rounded-foot-left
+tfoot .rounded-foot-left
 {
-	background: #a5ffa5 url('/images/botleft.png') left bottom no-repeat;
+	background: #00d300 url('/images/botleft.png') left bottom no-repeat;
 }
 
-tfoot td.rounded-foot-right
+tfoot .rounded-foot-right
 {
 	background: #a5ffa5 url('/images/botright.png') right bottom no-repeat;
 }
