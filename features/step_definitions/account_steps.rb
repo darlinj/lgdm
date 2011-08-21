@@ -2,6 +2,7 @@ Given %r/^there are some accounts$/ do
   user = User.find_by_email("fred.flintstone@bedrock.com")
   CloudAccount.create(:label          => 'cloud1',
                       :provider       => 'BT',
+                      :region         => 'bellybutton',
                       :s3_url         => 'http://storage.fr002.baynard.cloud21cn.com:8080',
                       :ec2_url        => 'http://api.fr002.baynard.cloud21cn.com:8773',
                       :ec2_access_key => 'blahblahblahblahblahblahblah',
@@ -10,6 +11,7 @@ Given %r/^there are some accounts$/ do
 
   CloudAccount.create(:label          => 'cloud2',
                       :provider       => 'BT',
+                      :region         => 'bellybutton',
                       :s3_url         => 'http://storage.fr002.baynard.cloud21cn.com:8080',
                       :ec2_url        => 'http://api.fr002.baynard.cloud21cn.com:8773',
                       :ec2_access_key => 'blahblahblahblahblahblahblah',
@@ -33,6 +35,7 @@ end
 When %r/^I fill in valid account details$/ do
   fill_in("Label", :with => "cloudy cloud")
   fill_in("Provider", :with => "BT")
+  fill_in("Region", :with => "East Indies")
   fill_in("S3 url", :with => "http://some.address:999/foo")
   fill_in("Ec2 url", :with => "http://some.address:999/foo")
   fill_in("Ec2 access key", :with => "blahblahblahblahblahblahblah")
@@ -48,6 +51,7 @@ end
 When %r/^I fill in INVALID account details$/ do
   fill_in("Label", :with => "")
   fill_in("Provider", :with => "BT")
+  fill_in("Region", :with => "East Indies")
   fill_in("S3 url", :with => "http://some.address:999/foo")
   fill_in("Ec2 url", :with => "http://some.address:999/foo")
   fill_in("Ec2 access key", :with => "blahblahblahblahblahblahblah")
