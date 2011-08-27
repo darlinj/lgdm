@@ -1,24 +1,31 @@
-<h1>Server image list</h1>
+<h1>image list</h1>
 
 <table>
+  <thead>
     <tr>
-      <th>ID</th>
+      <th class="top-left">ID</th>
       <th>Platform</th>
       <th>Architecture</th>
       <th>Location</th>
-      <th>Owner</th>
-      <th>State</th>
-      <th></th>
+      <th class="top-right-dark"></th>
     </tr>
+  </thead>
+  <tbody>
     <% @images.each do |image| %>
       <tr id=<%= image.id %>>
-        <td><%= image.id %></td>
+        <td class="instance_id"><%= image.id %></td>
         <td><%= image.platform%></td>
         <td><%= image.architecture%></td>
         <td><%= image.location%></td>
-        <td><%= image.owner_id%></td>
-        <td><%= image.state%></td>
         <td><%= link_to "run", servers_path(:image_id => image.id), :image_id => image.id, :method => :post %></td>
       </tr>
     <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td class="rounded-foot-left-light"></td>
+      <td colspan="3"></td>
+      <td class="rounded-foot-right"></td>
+    </tr>
+  </tfoot>
   </table>

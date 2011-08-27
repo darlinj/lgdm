@@ -20,23 +20,29 @@
     </div>
 
     <div class="content">
-      <% if current_user %>
-        <div id="menu">
-          <ul>
-            <li><%= link_to "cloud accounts", cloud_accounts_path %></li>
-            <li><%= link_to "images", images_path %></li>
-          </ul>
+      <div>
+        <% if current_user %>
+          <div id="menu">
+            <ul>
+              <li><%= link_to "cloud accounts", cloud_accounts_path %></li>
+              <li><%= link_to "images", images_path %></li>
+              <li><%= link_to "servers", servers_path %></li>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="main-section">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag(:div, :class =>"flash #{name}", :id => "flash_#{name}") do -%>
+              <%= content_tag :p, msg -%>
+            <% end -%>
+          <%- end -%>
+
+          <%= yield %>
         </div>
-      <% end %>
-
-      <div class="main-section">
-        <%- flash.each do |name, msg| -%>
-          <%= content_tag(:div, :class =>"flash #{name}", :id => "flash_#{name}") do -%>
-            <%= content_tag :p, msg -%>
-          <% end -%>
-        <%- end -%>
-
-        <%= yield %>
+      </div>
+      <div class="footer">
+        Some copyright stuff
       </div>
     </div>
 
