@@ -6,7 +6,7 @@
     <%= javascript_include_tag :all %>
     <%= csrf_meta_tag %>
   </head>
-  <body>
+  <body id="<%= @page %>">
     <div class="header">
       <img src="/images/lgdm_logo.png" />
       <div class="status">
@@ -24,9 +24,9 @@
         <% if current_user %>
           <div id="menu">
             <ul>
-              <li><%= link_to "cloud accounts", cloud_accounts_path %></li>
-              <li><%= link_to "images", images_path %></li>
-              <li><%= link_to "servers", servers_path %></li>
+              <li><%= link_to "cloud accounts", cloud_accounts_path, :id=>"cloud_accounts_nav"%></li>
+              <li><%= link_to "images", images_path,  :id=>"images_nav"%></li>
+              <li><%= link_to "servers", servers_path,  :id=>"servers_nav"%></li>
             </ul>
           </div>
         <% end %>

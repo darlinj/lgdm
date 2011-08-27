@@ -62,13 +62,22 @@ body {
   padding: 10px;
 }
 
+/* Menu hightlighting */
+body#cloud_accounts a#cloud_accounts_nav,
+body#images a#images_nav,
+body#servers a#servers_nav {
+	color: #fff;
+	background: #00d300;
+}
+
 /*Table layouts */
 
 table
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
-	margin: 45px;
+	margin-right: 45px;
+	margin-left: 45px;
 	width: 480px;
 	text-align: left;
 	border-collapse: collapse;

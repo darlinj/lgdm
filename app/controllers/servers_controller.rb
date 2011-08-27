@@ -5,6 +5,7 @@ class ServersController < ApplicationController
                        :bt_access_key_id => Rails.application.config.bt_access_key_id,
                        :bt_secret_access_key => Rails.application.config.bt_secret_access_key)
     @servers = cloud.servers
+    @page = "servers"
   end
 
   def create
