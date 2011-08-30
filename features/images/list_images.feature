@@ -6,3 +6,4 @@ Feature: listing images
     And there are server images available
     When I go to the list of images
     Then I should see the list of images
+    And I should not see images that are not machines

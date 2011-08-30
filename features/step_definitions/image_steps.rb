@@ -7,31 +7,38 @@ Given %r/^there are server images available$/ do
                         :bt_secret_access_key => cloud_account.ec2_secret_key)
 
   bt.images
-  Fog::BT::Compute::Mock.data["pi-baynard-stable"].first.last[:images] =
-    {'imageSet' =>
-      { 'id'=>"pri-ed1a8d0b",
-        'architecture'=>"x86_64",
-        'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
-        'owner_id'=>"joey",
-        'state'=>"AVAILABLE",
-        'type'=>"RAMDISK",
-        'is_public'=>true, #
-        'kernel_id'=>nil,
-        'platform'=>"linux",
-        'ramdisk_id'=>nil
-      },
-        'bibbleet2' => {
-        'id'=>"pri-22222222",
-        'architecture'=>"x86_64",
-        'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
-        'owner_id'=>"joey",
-        'state'=>"AVAILABLE",
-        'type'=>"RAMDISK",
-        'is_public'=>true,
-        'kernel_id'=>nil,
-        'platform'=>"linux",
-        'ramdisk_id'=>nil
-      } }
+  Fog::BT::Compute::Mock.data["pi-baynard-stable"].first.last[:images] = {
+    'imageSet' => { 'id'=>"pri-ed1a8d0b",
+      'architecture'=>"x86_64",
+      'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
+      'owner_id'=>"joey",
+      'state'=>"AVAILABLE",
+      'type'=>"MACHINE",
+      'is_public'=>true, #
+      'kernel_id'=>nil,
+      'platform'=>"linux",
+      'ramdisk_id'=>nil },
+    'pri-notamach' => { 'id'=>"pri-notamach",
+      'architecture'=>"x86_64",
+      'location'=>"notamachine/manifest.xml",
+      'owner_id'=>"foo",
+      'state'=>"AVAILABLE",
+      'type'=>"RAMDISK",
+      'is_public'=>true, #
+      'kernel_id'=>nil,
+      'platform'=>"linux",
+      'ramdisk_id'=>nil },
+    'bibbleet2' => { 'id'=>"pri-22222222",
+      'architecture'=>"x86_64",
+      'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
+      'owner_id'=>"joey",
+      'state'=>"AVAILABLE",
+      'type'=>"MACHINE",
+      'is_public'=>true,
+      'kernel_id'=>nil,
+      'platform'=>"linux",
+      'ramdisk_id'=>nil } 
+  }
 
 end
 
@@ -43,6 +50,12 @@ Then %r/^I should see the list of images$/ do
   within("table") do
     page.should have_content("pri-22222222")
     page.should have_content("pri-ed1a8d0b")
+  end
+end
+
+Then %r/^I should not see images that are not machines$/ do
+  within("table") do
+    page.should_not have_content("pri-notamach")
   end
 end
 

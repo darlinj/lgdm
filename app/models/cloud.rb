@@ -7,7 +7,7 @@ class Cloud
   end
 
   def images
-    connection.images
+    connection.images.select{|i| i.type == "MACHINE"}
   end
 
   def connection

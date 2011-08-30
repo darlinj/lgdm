@@ -17,6 +17,19 @@ describe Cloud, "images" do
           'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
           'owner_id'=>"joey",
           'state'=>"AVAILABLE",
+          'type'=>"MACHINE",
+          'is_public'=>true,
+          'kernel_id'=>nil,
+          'platform'=>"linux",
+          'ramdisk_id'=>nil
+        },
+      'aaa-notamachine' =>
+        {
+          'id'=>"aaa-notamachine",
+          'architecture'=>"x86_64",
+          'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
+          'owner_id'=>"joey",
+          'state'=>"AVAILABLE",
           'type'=>"RAMDISK",
           'is_public'=>true,
           'kernel_id'=>nil,
@@ -29,7 +42,7 @@ describe Cloud, "images" do
           'location'=>"cloudfs/initrd-2.6.18-194.8.1.el5xen.img.manifest.xml",
           'owner_id'=>"joey",
           'state'=>"AVAILABLE",
-          'type'=>"RAMDISK",
+          'type'=>"MACHINE",
           'is_public'=>true,
           'kernel_id'=>nil,
           'platform'=>"linux",
