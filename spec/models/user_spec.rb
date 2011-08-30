@@ -66,6 +66,30 @@ describe User, "create_cloud_account" do
   end
 end
 
+describe User, "create_chef_account" do
+  before do
+    @user = User.create!(:email => "something.that@lookslike.an.email.com", :password => "secret", :password_confirmation => "secret")
+    @params = {"label"          =>"my_account",
+               "chef_server_url" =>"http://doo.bar.com",
+               "chef_server_key" =>"blah blah",
+    }
+  end
+
+  def do_request
+    @user.create_chef_account(@params)
+    ChefAccount.find_by_label("my_account")
+  end
+
+  it "should create an account with the params supplied" do
+    do_request.label.should == "my_account"
+  end
+
+  it "should set the user association" do
+    chef_account = do_request
+    @user.chef_accounts.should include(chef_account)
+  end
+end
+
 describe User, "cloud_images" do
 
   before do

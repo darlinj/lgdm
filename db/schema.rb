@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805100011) do
+ActiveRecord::Schema.define(:version => 20110830104917) do
+
+  create_table "chef_accounts", :force => true do |t|
+    t.string  "label",           :null => false
+    t.string  "chef_server_url", :null => false
+    t.string  "chef_server_key", :null => false
+    t.integer "user_id"
+  end
 
   create_table "cloud_accounts", :force => true do |t|
     t.string  "label",          :null => false

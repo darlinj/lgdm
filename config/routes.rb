@@ -8,5 +8,6 @@ Lgdm::Application.routes.draw do
   resources :images, :only => [:index]
   resources :users, :only => [:new, :create]
   resources :cloud_accounts, :only => [:index,:new, :create]
+  resources :chef_accounts, :only => [:index, :new, :create]
   root :to => "pages#home"
 end

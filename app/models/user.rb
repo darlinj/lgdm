@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   has_many :cloud_accounts
+  has_many :chef_accounts
   acts_as_authentic do |c|
     c.login_field = :email
   end
-
 
   after_create :send_activation_email
 
@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
 
   def create_cloud_account(params)
     cloud_accounts.create(params)
+  end
+
+  def create_chef_account(params)
+    chef_accounts.create(params)
   end
 
   def cloud_images

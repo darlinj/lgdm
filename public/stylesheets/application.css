@@ -64,6 +64,7 @@ body {
 
 /* Menu hightlighting */
 body#cloud_accounts a#cloud_accounts_nav,
+body#chef_accounts a#chef_accounts_nav,
 body#images a#images_nav,
 body#servers a#servers_nav {
 	color: #fff;

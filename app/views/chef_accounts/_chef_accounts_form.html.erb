@@ -1,0 +1,11 @@
+<%= @chef_account.errors.full_messages unless @chef_account.errors.empty? %>
+<%= semantic_form_for(@chef_account) do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :label           %>
+    <%= form.input :chef_server_url %>
+    <%= form.input :chef_server_key %>
+  <% end %>
+  <%= form.buttons do%>
+    <%= form.submit("Create") %>
+  <% end %>
+<% end %>

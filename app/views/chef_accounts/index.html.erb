@@ -1,0 +1,30 @@
+<% if @chef_accounts && !@chef_accounts.empty? %>
+  <% @chef_accounts.each do |account| %>
+    <table>
+      <thead>
+        <tr id=<%= account.id %>>
+          <th class="top-left">Label</th>
+          <td class="top-right-light"><%= account.label%></td>
+        </tr>
+        <tr>
+          <th>Chef server URL</th>
+          <td><%= account.chef_server_url%></td>
+        </tr>
+        <tr>
+          <th>Chef server key</th>
+          <td><%= account.chef_server_key%></td>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th class="rounded-foot-left-dark"></th>
+          <td class="rounded-foot-right"></td>
+        </tr>
+      </tfoot>
+    </table>
+  <% end %>
+<% else %>
+  You currently have no chef server accounts registered
+<% end %>
+<div>
+  <%= link_to "Add chef account", new_chef_account_path %>
