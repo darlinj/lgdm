@@ -5,8 +5,9 @@ gem 'fog', '0.5.0'
 gem 'formtastic'
 gem "jquery-rails"
 gem 'pg'
-gem 'rails', '3.0.7'
+gem 'rails', '3.1.0'
 gem 'rake', '0.8.7'
+gem 'sass'
 
 group :development, :test do
   gem 'autotest'

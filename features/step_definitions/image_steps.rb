@@ -37,7 +37,7 @@ Given %r/^there are server images available$/ do
       'is_public'=>true,
       'kernel_id'=>nil,
       'platform'=>"linux",
-      'ramdisk_id'=>nil } 
+      'ramdisk_id'=>nil }
   }
 
 end

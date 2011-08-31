@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :chef_accounts
   acts_as_authentic do |c|
     c.login_field = :email
+    c.maintain_sessions = false
   end
 
   after_create :send_activation_email
