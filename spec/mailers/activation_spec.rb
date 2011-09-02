@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe Activation, "activate" do
 
-  let (:user) { User.create(:email => "something.that@email.com", 
-                            :password => "secret", 
+  let (:user) { User.create(:email => "something.that@email.com",
+                            :password => "secret",
                             :password_confirmation => "secret") }
 
   it "should set the FROM address" do
