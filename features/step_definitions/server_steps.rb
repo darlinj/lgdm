@@ -9,3 +9,22 @@ Then %r/^I should see that the server has been started$/ do
     page.should have_content("pri-22222222")
   end
 end
+
+Given %r/^there are some servers on the cloud$/ do
+  cloud_account = Factory(:cloud_account, :region=>"pi-baynard-stable", :user_id => @current_user.id)
+  bt = Fog::Compute.new(:provider => 'BT',
+                        :region =>"pi-baynard-stable",
+                        :bt_access_key_id => cloud_account.ec2_access_key,
+                        :bt_secret_access_key => cloud_account.ec2_secret_key)
+
+  bt.servers.create(:image_id => "pmi-123456")
+  bt.servers.create(:image_id => "pmi-654321")
+end
+
+Then %r/^I should see the servers$/ do
+  within("table") do
+    page.should have_content("pmi-123456")
+    page.should have_content("pmi-654321")
+  end
+end
+

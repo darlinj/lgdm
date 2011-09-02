@@ -104,11 +104,7 @@ describe User, "cloud_images" do
   end
 
   it "should query a cloud" do
-    Cloud.should_receive(:new).with(:provider => @cloud_account.provider,
-                       :region => @cloud_account.region,
-                       :bt_access_key_id => @cloud_account.ec2_access_key,
-                       :bt_secret_access_key => @cloud_account.ec2_secret_key
-    )
+    Cloud.should_receive(:new).with(@cloud_account)
     do_request
   end
 
@@ -118,4 +114,46 @@ describe User, "cloud_images" do
 
 end
 
+describe User, "cloud_servers" do
 
+  before do
+    @user = Factory(:user)
+    @cloud_account = Factory(:cloud_account, :user_id => @user.id)
+    cloud = mock(Cloud, :servers=>:some_servers)
+    Cloud.stub(:new).and_return(cloud)
+  end
+
+  def do_request
+    @user.cloud_servers
+  end
+
+  it "should query a cloud" do
+    Cloud.should_receive(:new).with(@cloud_account)
+    do_request
+  end
+
+  it "should return a list of servers" do
+    do_request.should == :some_servers
+  end
+
+end
+
+describe User, "running a server" do
+
+  before do
+    @user = Factory(:user)
+    @cloud_account = Factory(:cloud_account, :user_id => @user.id)
+    @cloud = mock(Cloud)
+    Cloud.stub(:new).and_return(@cloud)
+  end
+
+  def do_request
+    @user.start_server(:some_ami)
+  end
+
+  it "should request the cloud to run the server" do
+    @cloud.should_receive(:start_server).with(:some_ami)
+    do_request
+  end
+
+end
