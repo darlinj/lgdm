@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'authlogic'
+gem 'chef', "0.10.4"
 gem 'fog', '0.5.0'
 gem 'formtastic'
 gem "jquery-rails"
@@ -25,5 +26,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'simplecov'
   gem 'spork', '0.9.0.rc8'
+  gem 'vcr'
+  gem 'webmock'
 end
 

@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+require 'chef/rest'
+require 'chef/node'
+require 'chef/knife'
+require 'chef/config'
+require 'vcr'
+require 'ruby-debug'
+
+VCR.config do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.stub_with :webmock # or :fakeweb
+end
+
+class ChefServer < Chef::Knife
+  def initialize
+    Chef::Config[:client_key] = "#{File.dirname(__FILE__)}/joe_testing.pem"
+    Chef::Config[:node_name] = 'Joe'
+    Chef::Config[:chef_server_url] = 'http://109.144.14.214:4000' # testing
+    @rest = Chef::REST.new(Chef::Config[:chef_server_url])
+    super
+  end
+
+  def nodes
+    VCR.use_cassette('nodes') do
+      rest.get_rest("/nodes")
+    end
+  end
+
+  def node node_name
+    VCR.use_cassette(node_name) do
+      rest.get_rest("/nodes/#{node_name}")
+    end
+  end
+
+end
+chefserver = ChefServer.new
+nodes = chefserver.nodes
+
+nodes.each do |node|
+  node_data = chefserver.node(node[0])
+  roles = node_data.roles if node_data.attribute?(:roles)
+  puts "#{node_data.name} roles #{roles || "none"}"
+end

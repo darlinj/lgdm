@@ -43,6 +43,7 @@ GEM
       ZenTest
     bcrypt-ruby (3.0.0)
     builder (3.0.0)
+    bunny (0.7.4)
     capybara (1.0.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -50,9 +51,26 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    chef (0.10.4)
+      bunny (>= 0.6.0)
+      erubis
+      highline
+      json (<= 1.5.2, >= 1.4.4)
+      mixlib-authentication (>= 1.1.0)
+      mixlib-cli (>= 1.1.0)
+      mixlib-config (>= 1.1.2)
+      mixlib-log (>= 1.3.0)
+      moneta
+      net-ssh (~> 2.1.3)
+      net-ssh-multi (~> 1.1.0)
+      ohai (>= 0.6.0)
+      rest-client (< 1.7.0, >= 1.0.4)
+      treetop (~> 1.4.9)
+      uuidtools
     childprocess (0.2.2)
       ffi (~> 1.0.6)
     columnize (0.3.4)
+    crack (0.1.8)
     cucumber (1.0.2)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -92,12 +110,13 @@ GEM
       i18n (~> 0.4)
     gherkin (2.4.16)
       json (>= 1.4.6)
+    highline (1.6.2)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.13)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.5.4)
+    json (1.5.2)
     json_pure (1.5.4)
       spruz (~> 0.2.8)
     launchy (2.0.5)
@@ -109,9 +128,26 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mixlib-authentication (1.1.4)
+      mixlib-log
+    mixlib-cli (1.2.0)
+    mixlib-config (1.1.2)
+    mixlib-log (1.3.0)
+    moneta (0.6.0)
     multi_json (1.0.3)
-    net-ssh (2.2.1)
+    net-ssh (2.1.4)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
+    net-ssh-multi (1.1)
+      net-ssh (>= 2.1.4)
+      net-ssh-gateway (>= 0.99.0)
     nokogiri (1.5.0)
+    ohai (0.6.4)
+      mixlib-cli
+      mixlib-config
+      mixlib-log
+      systemu
+      yajl-ruby
     pg (0.11.0)
     polyglot (0.3.2)
     rack (1.3.2)
@@ -140,6 +176,8 @@ GEM
       thor (~> 0.14.6)
     rake (0.8.7)
     rdoc (3.9.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     roodi (2.1.0)
       ruby_parser
     rspec (2.6.0)
@@ -184,8 +222,9 @@ GEM
     sprockets (2.0.0)
       hike (~> 1.2)
       rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
+      tilt (!= 1.3.0, ~> 1.1)
     spruz (0.2.13)
+    systemu (2.3.0)
     term-ansicolor (1.0.6)
     thor (0.14.6)
     tilt (1.3.3)
@@ -193,8 +232,14 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    uuidtools (2.1.2)
+    vcr (1.11.2)
+    webmock (1.7.5)
+      addressable (~> 2.2, > 2.2.5)
+      crack (>= 0.1.7)
     xpath (0.1.4)
       nokogiri (~> 1.3)
+    yajl-ruby (0.8.3)
 
 PLATFORMS
   ruby
@@ -204,6 +249,7 @@ DEPENDENCIES
   autotest
   autotest-rails
   capybara
+  chef (= 0.10.4)
   cucumber-rails
   database_cleaner
   email_spec
@@ -223,3 +269,5 @@ DEPENDENCIES
   shoulda
   simplecov
   spork (= 0.9.0.rc8)
+  vcr
+  webmock

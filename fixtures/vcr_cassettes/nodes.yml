@@ -1,0 +1,47 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://109.144.14.214:4000//nodes
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      x-ops-sign:
+      - version=1.0
+      x-ops-userid:
+      - Joe
+      x-ops-timestamp:
+      - '2011-09-02T14:41:42Z'
+      x-ops-content-hash:
+      - 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+      x-ops-authorization-1:
+      - KA/ULF3OFfSmH+PVQIoSxwhzAR23xKjorHClE7D6oPzvAPTV0F3Q06Bpqq8v
+      x-ops-authorization-2:
+      - oN8O0cKZJRgb7HkAZqp2u7YKHudwDcm5bHIjbYHTqm3wc31BfLVke2FbNG6Y
+      x-ops-authorization-3:
+      - 5OOHxr+WVA5lPH+YOQmcaDcPoO9bFEjc4OtNAFHDLtIitqOdfp3X2SofnEMt
+      x-ops-authorization-4:
+      - DOwbHNyMi7sMLvnL85KjBVxbGe8wfRPPtDz2JazeEXkmrQl5RdHVJIk/kaNf
+      x-ops-authorization-5:
+      - 2UlOK+cQahdS8JCA6NIHvq1wOTgKBTWu/3Ikvi/BVXdhw2AJ0B45l1T53Pvu
+      x-ops-authorization-6:
+      - 23hwil0CClWBwuBygXNx773JJqVxDQAGLel5Q6xkaA==
+      host:
+      - 109.144.14.214:4000
+      x-chef-version:
+      - 0.10.4
+      user-agent:
+      - Chef Knife/0.10.4 (ruby-1.9.2-p290; ohai-0.6.4; x86_64-linux; +http://opscode.com)
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      server:
+      - thin 1.2.11 codename Bat-Shit Crazy
+    body: ! '{"i-000CCfD1":"http://109.144.14.214:4000/nodes/i-000CCfD1","i-000BPdCZ":"http://109.144.14.214:4000/nodes/i-000BPdCZ","i-0002uLlr":"http://109.144.14.214:4000/nodes/i-0002uLlr","i-000CiS92":"http://109.144.14.214:4000/nodes/i-000CiS92","i-0008nM5E":"http://109.144.14.214:4000/nodes/i-0008nM5E","i-00089ZUZ":"http://109.144.14.214:4000/nodes/i-00089ZUZ","i-000CIor9":"http://109.144.14.214:4000/nodes/i-000CIor9","i-000DXwxR":"http://109.144.14.214:4000/nodes/i-000DXwxR"}'
+    http_version: '1.1'
+  ignored: false
