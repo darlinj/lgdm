@@ -22,23 +22,26 @@ class ChefServer < Chef::Knife
   end
 
   def nodes
-    VCR.use_cassette('nodes') do
+    #VCR.use_cassette('nodes') do
       rest.get_rest("/nodes")
-    end
+    #end
   end
 
   def node node_name
-    VCR.use_cassette(node_name) do
+    #VCR.use_cassette(node_name) do
       rest.get_rest("/nodes/#{node_name}")
-    end
+    #end
   end
 
 end
-chefserver = ChefServer.new
-nodes = chefserver.nodes
 
-nodes.each do |node|
-  node_data = chefserver.node(node[0])
-  roles = node_data.roles if node_data.attribute?(:roles)
-  puts "#{node_data.name} roles #{roles || "none"}"
+VCR.use_cassette('node_roles', :erb => {:chef_url => "109.144.14.214", :first_server_id => "blah", :second_server_id => "blue"}) do
+  chefserver = ChefServer.new
+  nodes = chefserver.nodes
+
+  nodes.each do |node|
+    node_data = chefserver.node(node[0])
+    roles = node_data.roles if node_data.attribute?(:roles)
+    puts "#{node_data.name} roles #{roles || "none"}"
+  end
 end
