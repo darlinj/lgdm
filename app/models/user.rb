@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
   end
 
   def chef
+    return nil if chef_api_accounts.empty?
     @chef ||= ChefApi.new(chef_api_accounts.first)
   end
 end

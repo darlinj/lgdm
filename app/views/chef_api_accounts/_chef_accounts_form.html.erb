@@ -1,5 +1,5 @@
-<%= @chef_account.errors.full_messages unless @chef_account.errors.empty? %>
-<%= semantic_form_for(@chef_account) do |form| %>
+<%= @chef_api_account.errors.full_messages unless @chef_api_account.errors.empty? %>
+<%= semantic_form_for(@chef_api_account) do |form| %>
   <%= form.inputs do %>
     <%= form.input :label           %>
     <%= form.input :chef_server_url %>

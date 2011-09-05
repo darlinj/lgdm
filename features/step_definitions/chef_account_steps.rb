@@ -12,7 +12,7 @@ Given %r/^there are some chef accounts$/ do
 end
 
 When %r/^I go to the chef accounts page$/ do
-  visit('/chef_accounts')
+  visit('/chef_api_accounts')
 end
 
 Then %r/^I should see that there are some chef accounts$/ do
@@ -21,7 +21,7 @@ Then %r/^I should see that there are some chef accounts$/ do
 end
 
 When %r/^I go to the new chef account page$/ do
-  visit('/chef_accounts/new')
+  visit('/chef_api_accounts/new')
 end
 
 When %r/^I fill in valid chef account details$/ do
@@ -32,7 +32,7 @@ When %r/^I fill in valid chef account details$/ do
 end
 
 Then %r/^I should see that there is a new chef account$/ do
-  page.current_path.should == chef_accounts_path
+  page.current_path.should == chef_api_accounts_path
   page.should have_content('chef cloud')
 end
 

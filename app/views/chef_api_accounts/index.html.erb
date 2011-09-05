@@ -1,5 +1,5 @@
-<% if @chef_accounts && !@chef_accounts.empty? %>
-  <% @chef_accounts.each do |account| %>
+<% if @chef_api_accounts && !@chef_api_accounts.empty? %>
+  <% @chef_api_accounts.each do |account| %>
     <table>
       <thead>
         <tr id=<%= account.id %>>
@@ -27,4 +27,4 @@
   You currently have no chef server accounts registered
 <% end %>
 <div>
-  <%= link_to "Add chef account", new_chef_account_path %>
+  <%= link_to "Add chef account", new_chef_api_account_path %>

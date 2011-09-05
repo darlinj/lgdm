@@ -1,9 +1,9 @@
 When %r/^I go to the list of servers$/ do
   if @chef_account
-    VCR.use_cassette('node_roles', :erb => {:chef_url => @chef_account.chef_server_url , 
-                     :first_server_id => "pmi-123456", 
+    VCR.use_cassette('node_roles', :erb => {:chef_url => @chef_account.chef_server_url ,
+                     :first_server_id => @server1.id,
                      :first_server_role => "a_chef_role",
-                     :second_server_id => "pmi-654321",
+                     :second_server_id => @server2.id,
                      :second_server_role => "another_chef_role"}) do
       visit(path_to("server list"))
     end
@@ -27,8 +27,8 @@ Given %r/^there are some servers on the cloud$/ do
                         :bt_access_key_id => cloud_account.ec2_access_key,
                         :bt_secret_access_key => cloud_account.ec2_secret_key)
 
-  bt.servers.create(:image_id => "pmi-123456")
-  bt.servers.create(:image_id => "pmi-654321")
+  @server1 = bt.servers.create(:image_id => "pmi-123456")
+  @server2 = bt.servers.create(:image_id => "pmi-654321")
 end
 
 Then %r/^I should see the servers$/ do
