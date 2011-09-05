@@ -1,11 +1,11 @@
 Given %r/^there are some chef accounts$/ do
   user = User.find_by_email("fred.flintstone@bedrock.com")
-  ChefAccount.create(:label          => 'chef account one',
+  ChefApiAccount.create(:label          => 'chef account one',
                       :chef_server_url => 'http://someurl',
                       :chef_server_key => 'some_key',
                       :user_id        => user.id )
 
-  ChefAccount.create(:label          => 'A chef account',
+  ChefApiAccount.create(:label          => 'A chef account',
                       :chef_server_url => 'http://someurl',
                       :chef_server_key => 'some_key',
                       :user_id        => user.id )

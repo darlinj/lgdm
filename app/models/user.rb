@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :cloud_accounts
-  has_many :chef_accounts
+  has_many :chef_api_accounts
   acts_as_authentic do |c|
     c.login_field = :email
     c.maintain_sessions = false
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def create_chef_account(params)
-    chef_accounts.create(params)
+    chef_api_accounts.create(params)
   end
 
   def cloud_images
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def cloud_servers
-    cloud.servers
+    Server.all(cloud, chef)
   end
 
   def start_server ami
@@ -43,4 +43,7 @@ class User < ActiveRecord::Base
     @cloud ||= Cloud.new(cloud_accounts.first)
   end
 
+  def chef
+    @chef ||= ChefApi.new(chef_api_accounts.first)
+  end
 end

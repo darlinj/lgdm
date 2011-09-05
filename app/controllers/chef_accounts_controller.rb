@@ -5,7 +5,7 @@ class ChefAccountsController < ApplicationController
   end
 
   def new
-    @chef_account = ChefAccount.new
+    @chef_account = ChefApiAccount.new
     @page = "chef_accounts"
   end
 

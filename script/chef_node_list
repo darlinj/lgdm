@@ -7,10 +7,10 @@ require 'chef/config'
 require 'vcr'
 require 'ruby-debug'
 
-VCR.config do |c|
-  c.cassette_library_dir = 'fixtures/vcr_cassettes'
-  c.stub_with :webmock # or :fakeweb
-end
+#VCR.config do |c|
+  #c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  #c.stub_with :webmock # or :fakeweb
+#end
 
 class ChefServer < Chef::Knife
   def initialize
@@ -35,7 +35,7 @@ class ChefServer < Chef::Knife
 
 end
 
-VCR.use_cassette('node_roles', :erb => {:chef_url => "109.144.14.214", :first_server_id => "blah", :second_server_id => "blue"}) do
+#VCR.use_cassette('node_roles', :erb => {:chef_url => "109.144.14.214", :first_server_id => "blah", :second_server_id => "blue"}) do
   chefserver = ChefServer.new
   nodes = chefserver.nodes
 
@@ -44,4 +44,4 @@ VCR.use_cassette('node_roles', :erb => {:chef_url => "109.144.14.214", :first_se
     roles = node_data.roles if node_data.attribute?(:roles)
     puts "#{node_data.name} roles #{roles || "none"}"
   end
-end
+#end

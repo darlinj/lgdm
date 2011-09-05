@@ -1,5 +1,15 @@
 When %r/^I go to the list of servers$/ do
-  visit(path_to("server list"))
+  if @chef_account
+    VCR.use_cassette('node_roles', :erb => {:chef_url => @chef_account.chef_server_url , 
+                     :first_server_id => "pmi-123456", 
+                     :first_server_role => "a_chef_role",
+                     :second_server_id => "pmi-654321",
+                     :second_server_role => "another_chef_role"}) do
+      visit(path_to("server list"))
+    end
+  else
+    visit(path_to("server list"))
+  end
 end
 
 Then %r/^I should see that the server has been started$/ do
@@ -28,3 +38,11 @@ Then %r/^I should see the servers$/ do
   end
 end
 
+Given %r/^there is a chef account$/ do
+  @chef_account = Factory.create(:chef_api_account, :user_id => @current_user.id )
+end
+
+Then %r/^I should see that some servers have roles attached$/ do
+  page.should have_content('a_chef_role')
+  page.should have_content('another_chef_role')
+end

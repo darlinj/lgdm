@@ -13,10 +13,10 @@
 
 ActiveRecord::Schema.define(:version => 20110830104917) do
 
-  create_table "chef_accounts", :force => true do |t|
+  create_table "chef_api_accounts", :force => true do |t|
     t.string  "label",           :null => false
     t.string  "chef_server_url", :null => false
-    t.string  "chef_server_key", :null => false
+    t.text    "chef_server_key", :null => false
     t.integer "user_id"
   end
 

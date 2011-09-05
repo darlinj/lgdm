@@ -77,7 +77,7 @@ describe User, "create_chef_account" do
 
   def do_request
     @user.create_chef_account(@params)
-    ChefAccount.find_by_label("my_account")
+    ChefApiAccount.find_by_label("my_account")
   end
 
   it "should create an account with the params supplied" do
@@ -86,7 +86,7 @@ describe User, "create_chef_account" do
 
   it "should set the user association" do
     chef_account = do_request
-    @user.chef_accounts.should include(chef_account)
+    @user.chef_api_accounts.should include(chef_account)
   end
 end
 
@@ -115,25 +115,30 @@ describe User, "cloud_images" do
 end
 
 describe User, "cloud_servers" do
-
   before do
     @user = Factory(:user)
+    @cloud = mock(Cloud)
+    @chef_api = mock(ChefApi)
     @cloud_account = Factory(:cloud_account, :user_id => @user.id)
-    cloud = mock(Cloud, :servers=>:some_servers)
-    Cloud.stub(:new).and_return(cloud)
+    @chef_account = Factory(:chef_api_account, :user_id => @user.id)
+    Cloud.stub(:new).and_return(@cloud)
+    ChefApi.stub(:new).and_return(@chef_api)
+    Server.stub(:all)
   end
 
-  def do_request
+  it "should delegate to server class" do
+    Server.should_receive(:all).with(@cloud, @chef_api)
     @user.cloud_servers
   end
 
-  it "should query a cloud" do
+  it "should create the  a cloud" do
     Cloud.should_receive(:new).with(@cloud_account)
-    do_request
+    @user.cloud_servers
   end
 
-  it "should return a list of servers" do
-    do_request.should == :some_servers
+  it "should create a chef" do
+    ChefApi.should_receive(:new).with(@chef_account)
+    @user.cloud_servers
   end
 
 end
