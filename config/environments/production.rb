@@ -57,6 +57,6 @@ Lgdm::Application.configure do
   config.assets.digest = true
 
   config.email_sender         = "admin@leangreendeploymentmachine.com"
-  #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'http://blooming-dusk-950.herokuapp.com/' }
 
 end
