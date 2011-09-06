@@ -2,52 +2,6 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://109.144.14.214:4000//nodes
-    body: !!null 
-    headers:
-      accept:
-      - application/json
-      x-ops-sign:
-      - version=1.0
-      x-ops-userid:
-      - Joe
-      x-ops-timestamp:
-      - '2011-09-02T14:41:42Z'
-      x-ops-content-hash:
-      - 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
-      x-ops-authorization-1:
-      - KA/ULF3OFfSmH+PVQIoSxwhzAR23xKjorHClE7D6oPzvAPTV0F3Q06Bpqq8v
-      x-ops-authorization-2:
-      - oN8O0cKZJRgb7HkAZqp2u7YKHudwDcm5bHIjbYHTqm3wc31BfLVke2FbNG6Y
-      x-ops-authorization-3:
-      - 5OOHxr+WVA5lPH+YOQmcaDcPoO9bFEjc4OtNAFHDLtIitqOdfp3X2SofnEMt
-      x-ops-authorization-4:
-      - DOwbHNyMi7sMLvnL85KjBVxbGe8wfRPPtDz2JazeEXkmrQl5RdHVJIk/kaNf
-      x-ops-authorization-5:
-      - 2UlOK+cQahdS8JCA6NIHvq1wOTgKBTWu/3Ikvi/BVXdhw2AJ0B45l1T53Pvu
-      x-ops-authorization-6:
-      - 23hwil0CClWBwuBygXNx773JJqVxDQAGLel5Q6xkaA==
-      host:
-      - 109.144.14.214:4000
-      x-chef-version:
-      - 0.10.4
-      user-agent:
-      - Chef Knife/0.10.4 (ruby-1.9.2-p290; ohai-0.6.4; x86_64-linux; +http://opscode.com)
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
-      code: 200
-      message: OK
-    headers:
-      content-type:
-      - application/json; charset=utf-8
-      server:
-      - thin 1.2.11 codename Bat-Shit Crazy
-    body: ! '{"i-000CCfD1":"http://109.144.14.214:4000/nodes/i-000CCfD1","i-000BPdCZ":"http://109.144.14.214:4000/nodes/i-000BPdCZ"}'
-    http_version: '1.1'
-  ignored: false
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :get
     uri: http://109.144.14.214:4000//nodes/i-000CCfD1
     body: !!null 
     headers:
@@ -58,21 +12,21 @@
       x-ops-userid:
       - Joe
       x-ops-timestamp:
-      - '2011-09-02T14:41:42Z'
+      - '2011-09-06T08:18:04Z'
       x-ops-content-hash:
       - 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
       x-ops-authorization-1:
-      - QpJsKfDd3l7swsca/4ilh2MMdkRdQS3pCs1qFJmLYtbAEEx8TejU6MoTUTE+
+      - BFwfLvns+vsyb/pKXHXK61RUGi31cymP6flD9+YrfFjCb3//YwIa0JQNyLvU
       x-ops-authorization-2:
-      - xHbMqd4fOfQjBT+c4RfiNB+0AgLMtUcfkmSYSMtiAnkhU2ZlpJhtzqxnw4P4
+      - GuqjoJCVhWPRxV+77jj+UHKP6ab6CdE8hSuZY0vFNqM6TTIwt9brxziOWQPD
       x-ops-authorization-3:
-      - nxMbxkVE+RM8R1ayvUGQ54SlQWJ1onK9yctcSsPumNuXROeWEPChIRFqEWqb
+      - s5MFemy5qEvXINQV26z+SVmbyno/8fzwLHHKkG1aXeIrdfub754pddgOM/Gq
       x-ops-authorization-4:
-      - xH6uV/BtbUpElXENynGqyEoz+lLtUGpM6u4VjqvAb64vRmuZq4PZFJnKTnYi
+      - P9ib9lywuhGtRNWteRyImNsjOsm7VYyIWgR+gOHOQ5StknWjC9zgR2M4PDSN
       x-ops-authorization-5:
-      - gS45DvCFdokbYkhEXxWKdaWH4+j0nqKZ9ylv+RmS8gRqz3BH5rqRIVXByfHf
+      - 9WMrqbeQ8H2zFlW4melBDWgCGnen3/e2SFEzKZsX/vmj7ixeAJNPt8Y156bW
       x-ops-authorization-6:
-      - L3G2XekqUoXa+pkP6v9IeQ0fBmOs8okUlJ+Ih3Lt6A==
+      - APlr91ISAsQ+R8v6A71wmyXizE68fvi9yzfCfJOT3Q==
       host:
       - 109.144.14.214:4000
       x-chef-version:
@@ -102,7 +56,7 @@
       daemon","uid":68,"shell":"/sbin/nologin"},"root":{"dir":"/root","gid":0,"gecos":"root","uid":0,"shell":"/bin/bash"},"operator":{"dir":"/root","gid":0,"gecos":"operator","uid":11,"shell":"/sbin/nologin"},"gopher":{"dir":"/var/gopher","gid":30,"gecos":"gopher","uid":13,"shell":"/sbin/nologin"},"sshd":{"dir":"/var/empty/sshd","gid":74,"gecos":"Privilege-separated
       SSH","uid":74,"shell":"/sbin/nologin"},"bin":{"dir":"/bin","gid":1,"gecos":"bin","uid":1,"shell":"/sbin/nologin"},"vcsa":{"dir":"/dev","gid":69,"gecos":"virtual
       console memory owner","uid":69,"shell":"/sbin/nologin"},"daemon":{"dir":"/sbin","gid":2,"gecos":"daemon","uid":2,"shell":"/sbin/nologin"},"news":{"dir":"/etc/news","gid":13,"gecos":"news","uid":9,"shell":""},"dbus":{"dir":"/","gid":81,"gecos":"System
-      message bus","uid":81,"shell":"/sbin/nologin"},"adm":{"dir":"/var/adm","gid":4,"gecos":"adm","uid":3,"shell":"/sbin/nologin"},"ntp":{"dir":"/etc/ntp","gid":38,"gecos":"","uid":38,"shell":"/sbin/nologin"}}},"public_ip":"109.144.14.66","roles":["<%= first_server_role %>","rails_base"],"platform":"redhat","uptime_seconds":55,"block_device":{"ram13":{"size":"32768","removable":"0"},"ram0":{"size":"32768","removable":"0"},"sda1":{"size":"10485760","removable":"0"},"ram14":{"size":"32768","removable":"0"},"ram1":{"size":"32768","removable":"0"},"sda2":{"size":"10485760","removable":"0"},"ram15":{"size":"32768","removable":"0"},"ram2":{"size":"32768","removable":"0"},"md0":{"size":"0","removable":"0"},"sda3":{"size":"1048576","removable":"0"},"ram3":{"size":"32768","removable":"0"},"ram4":{"size":"32768","removable":"0"},"ram5":{"size":"32768","removable":"0"},"ram6":{"size":"32768","removable":"0"},"ram10":{"size":"32768","removable":"0"},"ram7":{"size":"32768","removable":"0"},"ram11":{"size":"32768","removable":"0"},"ram8":{"size":"32768","removable":"0"},"ram12":{"size":"32768","removable":"0"},"ram9":{"size":"32768","removable":"0"}}},"chef_environment":"osss_test","run_list":["role[osss_frontend_test_server]"],"chef_type":"node"}'
+      message bus","uid":81,"shell":"/sbin/nologin"},"adm":{"dir":"/var/adm","gid":4,"gecos":"adm","uid":3,"shell":"/sbin/nologin"},"ntp":{"dir":"/etc/ntp","gid":38,"gecos":"","uid":38,"shell":"/sbin/nologin"}}},"public_ip":"109.144.14.66","roles":["osss_frontend_test_server","rails_base"],"platform":"redhat","uptime_seconds":55,"block_device":{"ram13":{"size":"32768","removable":"0"},"ram0":{"size":"32768","removable":"0"},"sda1":{"size":"10485760","removable":"0"},"ram14":{"size":"32768","removable":"0"},"ram1":{"size":"32768","removable":"0"},"sda2":{"size":"10485760","removable":"0"},"ram15":{"size":"32768","removable":"0"},"ram2":{"size":"32768","removable":"0"},"md0":{"size":"0","removable":"0"},"sda3":{"size":"1048576","removable":"0"},"ram3":{"size":"32768","removable":"0"},"ram4":{"size":"32768","removable":"0"},"ram5":{"size":"32768","removable":"0"},"ram6":{"size":"32768","removable":"0"},"ram10":{"size":"32768","removable":"0"},"ram7":{"size":"32768","removable":"0"},"ram11":{"size":"32768","removable":"0"},"ram8":{"size":"32768","removable":"0"},"ram12":{"size":"32768","removable":"0"},"ram9":{"size":"32768","removable":"0"}}},"chef_environment":"osss_test","run_list":["role[osss_frontend_test_server]"],"chef_type":"node"}'
     http_version: '1.1'
   ignored: false
 - !ruby/struct:VCR::HTTPInteraction
@@ -118,21 +72,21 @@
       x-ops-userid:
       - Joe
       x-ops-timestamp:
-      - '2011-09-02T14:41:42Z'
+      - '2011-09-06T08:18:05Z'
       x-ops-content-hash:
       - 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
       x-ops-authorization-1:
-      - Pcx2CIgE8Nyi7YFg+AMxr4XBXcHkMqsegOvl6+LWCUmFDoJWV4Hv8ANLeQvs
+      - DM2yyR97poy8JH5CHq5iF9xepBXv6OjrowuyfMgNrpnJmU5PGkjzEThr2pmS
       x-ops-authorization-2:
-      - s7YL0bFiXejAUe1Hh7oRtUU7lLX+QhgF5v1vaicmaVWfQW19lLy4LXQbh/9Y
+      - bWZEOt7XlijsgS+1RNGARb78egBDSA1g6Ou+PGA5F2u+962/ew5PL2NJLu2x
       x-ops-authorization-3:
-      - lQnoDc8wEDeN8o8S6eaL/buMMgTfcGos4pDtHyMEXSE6f98V5eUqfZ7PW/2S
+      - onrOpJSs/aonnVorN4AQkdrU0hVOXeUB8LlK3NrirPrmsjGnZJvflSODbBfz
       x-ops-authorization-4:
-      - sfjCalFH2lEHXGUcs8aRKZvy2uzXRaGut1usskuaZgQBKdb/W7ov4A6lg3p2
+      - 2FqgPRY/DQQXj7qzWOxezaOK2ujlNFLjJuD8rMfylyd7GbvcTzIqmCPGXFsN
       x-ops-authorization-5:
-      - hxCPt13LLpaZBYRHgX9oTNSGhr1+JPV7VDQVc85z2+yzqLwJBPOd6JXIEwwG
+      - LDFrp7Uwt9t4jdL8XDHWb874TL051Cd0CBI30mldqRTehn/GQHkKDtx6z9Ya
       x-ops-authorization-6:
-      - EBHN6x6W4J0e4+kEfJg9pyv65qnwOFzqRAs8PyJnVw==
+      - 0VNt6gT9jrKnKUiVZpWcYehIeO5zXbZ92yaoJ3MtqA==
       host:
       - 109.144.14.214:4000
       x-chef-version:
@@ -154,7 +108,7 @@
       days 22 hours 47 minutes 49 seconds","virtualization":{"role":"guest","system":"xen"},"lsb":{},"network":{"default_interface":"eth0","interfaces":{"lo":{"flags":["UP","LOOPBACK","RUNNING"],"addresses":{"::1":{"scope":"Node","prefixlen":"128","family":"inet6"},"127.0.0.1":{"netmask":"255.0.0.0","family":"inet"}},"mtu":"16436","encapsulation":"Loopback"},"eth0":{"flags":["UP","BROADCAST","RUNNING","MULTICAST"],"number":"0","addresses":{"10.19.196.34":{"netmask":"255.255.255.240","broadcast":"10.19.196.47","family":"inet"},"00:A0:D5:F8:F0:00":{"family":"lladdr"},"fe80::2a0:d5ff:fef8:f000":{"scope":"Link","prefixlen":"64","family":"inet6"}},"mtu":"1400","type":"eth","arp":{"10.19.196.33":"00:1e:68:c6:0c:8a"},"encapsulation":"Ethernet"},"sit0":{"number":"0","mtu":"1480","type":"sit","encapsulation":"6to4"}},"default_gateway":"10.19.196.33"},"chef_packages":{"ohai":{"ohai_root":"/usr/local/lib/ruby/gems/1.8/gems/ohai-0.6.4/lib/ohai","version":"0.6.4"},"chef":{"version":"0.10.2","chef_root":"/usr/local/lib/ruby/gems/1.8/gems/chef-0.10.2/lib"}},"current_user":null,"ohai_time":1314867083.63801,"recipes":["haproxy::app_lb","chef-client"],"os_version":"2.6.18-128.el5xen","languages":{"perl":{"version":"5.8.8","archname":"i386-linux-thread-multi"},"python":{"version":"2.4.3","builddate":"Jan
       21 2009, 01:10:13"},"ruby":{"target_os":"linux","bin_dir":"/usr/local/bin","host_vendor":"pc","target_vendor":"pc","target_cpu":"i686","ruby_bin":"/usr/local/bin/ruby","version":"1.8.7","host_os":"linux-gnu","host_cpu":"i686","target":"i686-pc-linux-gnu","host":"i686-pc-linux-gnu","release_date":"2008-05-31","gems_dir":"/usr/local/lib/ruby/gems/1.8","platform":"i686-linux"}},"cpu":{"real":0,"total":1,"0":{"flags":["fpu","tsc","msr","pae","cx8","apic","cmov","pat","clflush","acpi","mmx","fxsr","sse","sse2","ss","ht","nx","constant_tsc","up","pni","vmx","est"],"model":"23","model_name":"Intel(R)
       Xeon(R) CPU           L5420  @ 2.50GHz","family":"6","mhz":"2500.088","vendor_id":"GenuineIntel","cache_size":"6144
-      KB","stepping":"10"}},"uptime":"37 days 00 hours 42 minutes 38 seconds","hostname":"bt","roles":["<%= first_server_role %>"],"public_ip":"109.144.14.155","etc":{"group":{"utmp":{"gid":22,"members":[]},"dip":{"gid":40,"members":[]},"uucp":{"gid":14,"members":["uucp"]},"games":{"gid":20,"members":[]},"kmem":{"gid":9,"members":[]},"ftp":{"gid":50,"members":[]},"sys":{"gid":3,"members":["root","bin","adm"]},"nagios":{"gid":102,"members":[]},"nobody":{"gid":99,"members":[]},"tty":{"gid":5,"members":[]},"stratus":{"gid":103,"members":[]},"lock":{"gid":54,"members":[]},"man":{"gid":15,"members":[]},"lp":{"gid":7,"members":["daemon","lp"]},"haldaemon":{"gid":68,"members":[]},"mail":{"gid":12,"members":["mail"]},"utempter":{"gid":35,"members":[]},"sshd":{"gid":74,"members":[]},"gopher":{"gid":30,"members":[]},"root":{"gid":0,"members":["root"]},"vcsa":{"gid":69,"members":[]},"wheel":{"gid":10,"members":["root"]},"bin":{"gid":1,"members":["root","bin","daemon"]},"dbus":{"gid":81,"members":[]},"users":{"gid":100,"members":[]},"news":{"gid":13,"members":["news"]},"daemon":{"gid":2,"members":["root","bin","daemon"]},"floppy":{"gid":19,"members":[]},"disk":{"gid":6,"members":["root"]},"haproxy":{"gid":104,"members":[]},"ntp":{"gid":38,"members":[]},"mem":{"gid":8,"members":[]},"adm":{"gid":4,"members":["root","adm","daemon"]}},"passwd":{"uucp":{"dir":"/var/spool/uucp","gid":14,"gecos":"uucp","uid":10,"shell":"/sbin/nologin"},"games":{"dir":"/usr/games","gid":100,"gecos":"games","uid":12,"shell":"/sbin/nologin"},"halt":{"dir":"/sbin","gid":0,"gecos":"halt","uid":7,"shell":"/sbin/halt"},"ftp":{"dir":"/var/ftp","gid":50,"gecos":"FTP
+      KB","stepping":"10"}},"uptime":"37 days 00 hours 42 minutes 38 seconds","hostname":"bt","roles":["cdd_loadbalancer"],"public_ip":"109.144.14.155","etc":{"group":{"utmp":{"gid":22,"members":[]},"dip":{"gid":40,"members":[]},"uucp":{"gid":14,"members":["uucp"]},"games":{"gid":20,"members":[]},"kmem":{"gid":9,"members":[]},"ftp":{"gid":50,"members":[]},"sys":{"gid":3,"members":["root","bin","adm"]},"nagios":{"gid":102,"members":[]},"nobody":{"gid":99,"members":[]},"tty":{"gid":5,"members":[]},"stratus":{"gid":103,"members":[]},"lock":{"gid":54,"members":[]},"man":{"gid":15,"members":[]},"lp":{"gid":7,"members":["daemon","lp"]},"haldaemon":{"gid":68,"members":[]},"mail":{"gid":12,"members":["mail"]},"utempter":{"gid":35,"members":[]},"sshd":{"gid":74,"members":[]},"gopher":{"gid":30,"members":[]},"root":{"gid":0,"members":["root"]},"vcsa":{"gid":69,"members":[]},"wheel":{"gid":10,"members":["root"]},"bin":{"gid":1,"members":["root","bin","daemon"]},"dbus":{"gid":81,"members":[]},"users":{"gid":100,"members":[]},"news":{"gid":13,"members":["news"]},"daemon":{"gid":2,"members":["root","bin","daemon"]},"floppy":{"gid":19,"members":[]},"disk":{"gid":6,"members":["root"]},"haproxy":{"gid":104,"members":[]},"ntp":{"gid":38,"members":[]},"mem":{"gid":8,"members":[]},"adm":{"gid":4,"members":["root","adm","daemon"]}},"passwd":{"uucp":{"dir":"/var/spool/uucp","gid":14,"gecos":"uucp","uid":10,"shell":"/sbin/nologin"},"games":{"dir":"/usr/games","gid":100,"gecos":"games","uid":12,"shell":"/sbin/nologin"},"halt":{"dir":"/sbin","gid":0,"gecos":"halt","uid":7,"shell":"/sbin/halt"},"ftp":{"dir":"/var/ftp","gid":50,"gecos":"FTP
       User","uid":14,"shell":"/sbin/nologin"},"shutdown":{"dir":"/sbin","gid":0,"gecos":"shutdown","uid":6,"shell":"/sbin/shutdown"},"nagios":{"dir":"/opt/nagios","gid":102,"gecos":"","uid":102,"shell":"/bin/rbash"},"nobody":{"dir":"/","gid":99,"gecos":"Nobody","uid":99,"shell":"/sbin/nologin"},"stratus":{"dir":"/home/stratus","gid":103,"gecos":"","uid":103,"shell":"/home/stratus/publish"},"lp":{"dir":"/var/spool/lpd","gid":7,"gecos":"lp","uid":4,"shell":"/sbin/nologin"},"haldaemon":{"dir":"/","gid":68,"gecos":"HAL
       daemon","uid":68,"shell":"/sbin/nologin"},"mail":{"dir":"/var/spool/mail","gid":12,"gecos":"mail","uid":8,"shell":"/sbin/nologin"},"sync":{"dir":"/sbin","gid":0,"gecos":"sync","uid":5,"shell":"/bin/sync"},"sshd":{"dir":"/var/empty/sshd","gid":74,"gecos":"Privilege-separated
       SSH","uid":74,"shell":"/sbin/nologin"},"gopher":{"dir":"/var/gopher","gid":30,"gecos":"gopher","uid":13,"shell":"/sbin/nologin"},"operator":{"dir":"/root","gid":0,"gecos":"operator","uid":11,"shell":"/sbin/nologin"},"root":{"dir":"/root","gid":0,"gecos":"root","uid":0,"shell":"/bin/bash"},"vcsa":{"dir":"/dev","gid":69,"gecos":"virtual
