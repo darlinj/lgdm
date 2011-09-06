@@ -2,13 +2,13 @@
 <html>
   <head>
     <title>Lgdm</title>
-    <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag :all %>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
   </head>
   <body id="<%= @page %>">
     <div class="header">
-      <img src="/images/lgdm_logo.png" />
+      <%= image_tag( asset_path("lgdm_logo.png")) %>
       <div class="status">
         <% if !current_user %>
           <%= link_to "Register", new_user_path %> |
