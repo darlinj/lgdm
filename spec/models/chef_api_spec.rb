@@ -11,4 +11,10 @@ describe ChefApi, "roles_for_server" do
     end
   end
 
+  it "should return an empty array when there is no corresponding record on chef" do
+    VCR.use_cassette("node_404") do
+      @chef.roles_for_server("i-000DDfD1").should == []
+    end
+  end
 end
+

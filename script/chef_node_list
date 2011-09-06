@@ -45,6 +45,6 @@ VCR.use_cassette('node_roles_real', :erb => {:chef_url => "109.144.14.214", :fir
     #roles = node_data.roles if node_data.attribute?(:roles)
     #puts "#{node_data.name} roles #{roles || "none"}"
   #end
-    chefserver.node("i-000CCfD1")
-    chefserver.node("i-000BPdCZ")
+    chefserver.node("i-000DDfD1")
+    #chefserver.node("i-000BPdCZ")
 end

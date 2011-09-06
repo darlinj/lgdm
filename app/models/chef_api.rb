@@ -21,5 +21,7 @@ class ChefApi < Chef::Knife
 
   def roles_for_server server_id
     rest.get_rest("/nodes/#{server_id}").roles
+  rescue Net::HTTPServerException => e
+    [] if e.response.code == "404"
   end
 end

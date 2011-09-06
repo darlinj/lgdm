@@ -117,3 +117,49 @@
       user","uid":104,"shell":"/bin/false"},"ntp":{"dir":"/etc/ntp","gid":38,"gecos":"","uid":38,"shell":"/sbin/nologin"},"adm":{"dir":"/var/adm","gid":4,"gecos":"adm","uid":3,"shell":"/sbin/nologin"}}},"macaddress":"00:A0:D5:F8:F0:00","uptime_seconds":3199358,"block_device":{"ram0":{"size":"32768","removable":"0"},"ram13":{"size":"32768","removable":"0"},"ram1":{"size":"32768","removable":"0"},"ram14":{"size":"32768","removable":"0"},"sda1":{"size":"10667097","removable":"0"},"ram2":{"size":"32768","removable":"0"},"ram15":{"size":"32768","removable":"0"},"sda2":{"size":"10305536","removable":"0"},"ram3":{"size":"32768","removable":"0"},"sda3":{"size":"1048576","removable":"0"},"md0":{"size":"0","removable":"0"},"ram4":{"size":"32768","removable":"0"},"ram5":{"size":"32768","removable":"0"},"ram6":{"size":"32768","removable":"0"},"ram7":{"size":"32768","removable":"0"},"ram10":{"size":"32768","removable":"0"},"ram8":{"size":"32768","removable":"0"},"ram11":{"size":"32768","removable":"0"},"ram9":{"size":"32768","removable":"0"},"ram12":{"size":"32768","removable":"0"}},"platform":"centos"},"chef_environment":"colosseum-test1","run_list":["role[cdd_loadbalancer]"],"chef_type":"node"}'
     http_version: '1.1'
   ignored: false
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: <%= chef_url %>//nodes/<%= third_server_id %>
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      x-ops-sign:
+      - version=1.0
+      x-ops-userid:
+      - Joe
+      x-ops-timestamp:
+      - '2011-09-06T13:04:22Z'
+      x-ops-content-hash:
+      - 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+      x-ops-authorization-1:
+      - CCW0xDsbQm0epArluJnSRThCUwNUfkAxv3MIPmtG+wpLT5mJ9OxYtZgXcGLj
+      x-ops-authorization-2:
+      - vYTqTIgRQs7xK6w7qK6NbX9EXBIauYr1sL+MGJpjTC4P8x3f1rwlIErq+HgK
+      x-ops-authorization-3:
+      - IhYDltlFcCYvIZmdpPI2JONCg8XYo/bFG9HMDoSYS6vssMnFMEviX19oAZFZ
+      x-ops-authorization-4:
+      - TbICH/nXBRzX6lpMLrxXJgOFATgEbJFYlX4U7qo3ZihPGeWOPwXtJt/O/j/U
+      x-ops-authorization-5:
+      - RupZJ6dIyoG+kzReCGPACE5Mi5ABcHAVXWlzfpRH5JbiUqEAL/CKqA3oa0SL
+      x-ops-authorization-6:
+      - vdnzTPvIHQJI2dEjYetOqjt2sXQmn33aXqMZUUJ2pA==
+      host:
+      - 109.144.14.214:4000
+      x-chef-version:
+      - 0.10.4
+      user-agent:
+      - Chef Knife/0.10.4 (ruby-1.9.2-p290; ohai-0.6.4; x86_64-linux; +http://opscode.com)
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Not Found
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      server:
+      - thin 1.2.11 codename Bat-Shit Crazy
+    body: ! '{"error":["Cannot load node i-000DDfD1"]}'
+    http_version: '1.1'
+  ignored: false

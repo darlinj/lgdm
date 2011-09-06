@@ -4,7 +4,8 @@ When %r/^I go to the list of servers$/ do
                      :first_server_id => @server1.id,
                      :first_server_role => "a_chef_role",
                      :second_server_id => @server2.id,
-                     :second_server_role => "another_chef_role"}) do
+                     :second_server_role => "another_chef_role",
+                     :third_server_id => @server3.id}) do
       visit(path_to("server list"))
     end
   else
@@ -16,7 +17,7 @@ Then %r/^I should see that the server has been started$/ do
   within("table") do
     #save_and_open_page
     page.should have_content("pending")
-    page.should have_content("pri-22222222")
+    #should test that there is one more row in the table
   end
 end
 
@@ -29,12 +30,14 @@ Given %r/^there are some servers on the cloud$/ do
 
   @server1 = bt.servers.create(:image_id => "pmi-123456")
   @server2 = bt.servers.create(:image_id => "pmi-654321")
+  @server3 = bt.servers.create(:image_id => "pmi-654321")
 end
 
 Then %r/^I should see the servers$/ do
   within("table") do
-    page.should have_content("pmi-123456")
-    page.should have_content("pmi-654321")
+    page.should have_content(@server1.id)
+    page.should have_content(@server2.id)
+    page.should have_content(@server3.id)
   end
 end
 

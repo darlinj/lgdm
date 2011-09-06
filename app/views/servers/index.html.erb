@@ -3,10 +3,8 @@
     <tr>
       <th class="top-left">ID</th>
       <th>IP</th>
-      <th>Image</th>
       <th>Key Name</th>
       <th>Roles</th>
-      <th>Group</th>
       <th class="top-right-dark">State</th>
     </tr>
   </thead>
@@ -15,10 +13,8 @@
       <tr id=<%= server.id %>>
         <td><%= server.id %></td>
         <td><%= server.dns_name %></td>
-        <td><%= server.image_id%></td>
         <td><%= server.key_name%></td>
         <td><%= server.roles %></td>
-        <td><%= server.groups.first %></td>
         <td><%= server.state%></td>
       </tr>
     <% end %>
@@ -26,7 +22,7 @@
   <tfoot>
     <tr>
       <td class="rounded-foot-left-light"></td>
-      <td colspan="4"></td>
+      <td colspan="3"></td>
       <td class="rounded-foot-right"></td>
     </tr>
   </tfoot>
