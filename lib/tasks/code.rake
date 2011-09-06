@@ -1,4 +1,3 @@
-require 'roodi'
 require "rake/clean"
 
 CLEAN.include %w(log/** tmp/** coverage)
