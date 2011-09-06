@@ -4,4 +4,3 @@ log/*
 tmp/
 coverage/
 .sass-cache/
-production.rb
