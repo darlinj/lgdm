@@ -7,6 +7,19 @@ GIT
       activerecord (>= 3.0.7)
       activerecord (>= 3.0.7)
 
+PATH
+  remote: vendor/fog
+  specs:
+    fog (0.5.0)
+      builder
+      excon
+      formatador (>= 0.0.16)
+      json
+      mime-types
+      net-ssh (>= 2.0.23)
+      nokogiri (>= 1.4.4)
+      ruby-hmac
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -109,15 +122,6 @@ GEM
       factory_girl (~> 2.0.0)
       railties (>= 3.0.0)
     ffi (1.0.9)
-    fog (0.5.0)
-      builder
-      excon
-      formatador (>= 0.0.16)
-      json
-      mime-types
-      net-ssh (>= 2.0.23)
-      nokogiri (>= 1.4.4)
-      ruby-hmac
     formatador (0.2.0)
     formtastic (1.2.4)
       actionpack (>= 2.3.7)
@@ -286,7 +290,7 @@ DEPENDENCIES
   email_spec
   factory_girl_generator
   factory_girl_rails
-  fog (= 0.5.0)
+  fog (= 0.5.0)!
   formtastic
   heroku
   jquery-rails

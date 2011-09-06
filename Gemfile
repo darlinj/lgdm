@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git', :ref => '0297e1c005c626c1e37b'
 gem 'chef', "0.10.4"
-gem 'fog', '0.5.0'
+gem 'fog', '0.5.0', :path => "vendor/fog"
 gem 'formtastic'
 gem "jquery-rails"
 gem 'pg'
