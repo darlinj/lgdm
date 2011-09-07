@@ -163,3 +163,49 @@
     body: ! '{"error":["Cannot load node i-000DDfD1"]}'
     http_version: '1.1'
   ignored: false
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: <%= chef_url %>//nodes/<%= server_with_no_roles_id %>
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      x-ops-sign:
+      - version=1.0
+      x-ops-userid:
+      - Joe
+      x-ops-timestamp:
+      - '2011-09-07T18:54:03Z'
+      x-ops-content-hash:
+      - 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+      x-ops-authorization-1:
+      - OkWx8Z/9HuxP341z6x4QMzVr35k+wCrgLBLXItk3/NEkiFSbup7UMCBG45mu
+      x-ops-authorization-2:
+      - yTOmZu2ekkEE4aAelNn2J2Dk58bd7a4oUOLdb2lEFGKqsBo220LQz0YMNoOt
+      x-ops-authorization-3:
+      - AzR0MpIuJmykgn/7vHvaiJVPX/nEDjpzbMh6XA9uNzrvT+i6wXGMw9ixU1HC
+      x-ops-authorization-4:
+      - Kl7QWFOUkNXAe3pQPnrdUx4luvyiZbqum0xlfHboOkbHqMWyy2ctFmwSMduJ
+      x-ops-authorization-5:
+      - LaFoo4QyBgBu/dREznKtn92KjRnK9MDu+SGYIz27jPL/zJsn4aWy3FHI6aro
+      x-ops-authorization-6:
+      - hsly26iOszaUG2Panq1GoesM2Aidt4sjgNL7CJz4Nw==
+      host:
+      - 109.144.14.214:4000
+      x-chef-version:
+      - 0.10.4
+      user-agent:
+      - Chef Knife/0.10.4 (ruby-1.9.2-p290; ohai-0.6.4; x86_64-linux; +http://opscode.com)
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      server:
+      - thin 1.2.11 codename Bat-Shit Crazy
+    body: ! '{"normal":{},"name":"i-000CiS92","override":{},"default":{},"json_class":"Chef::Node","automatic":{},"chef_environment":"_default","run_list":[],"chef_type":"node"}'
+    http_version: '1.1'
+  ignored: false

@@ -5,7 +5,8 @@ When %r/^I go to the list of servers$/ do
                      :first_server_role => "a_chef_role",
                      :second_server_id => @server2.id,
                      :second_server_role => "another_chef_role",
-                     :third_server_id => @server3.id}) do
+                     :third_server_id => @server3.id,
+                     :server_with_no_roles_id => @server4.id}) do
       visit(path_to("server list"))
     end
   else
@@ -31,6 +32,7 @@ Given %r/^there are some servers on the cloud$/ do
   @server1 = bt.servers.create(:image_id => "pmi-123456")
   @server2 = bt.servers.create(:image_id => "pmi-654321")
   @server3 = bt.servers.create(:image_id => "pmi-654321")
+  @server4 = bt.servers.create(:image_id => "pmi-654321")
 end
 
 Then %r/^I should see the servers$/ do

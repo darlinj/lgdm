@@ -16,5 +16,11 @@ describe ChefApi, "roles_for_server" do
       @chef.roles_for_server("i-000DDfD1").should == []
     end
   end
+
+  it "should return an empty array when a node is returned with no roles" do
+    VCR.use_cassette("node_roles_no_role") do
+      @chef.roles_for_server("i-000CiS92").should == []
+    end
+  end
 end
 
