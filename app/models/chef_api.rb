@@ -8,7 +8,7 @@ class ChefApi < Chef::Knife
 
   def initialize account_details
     if account_details
-      key_file = Tempfile.new("key")
+      key_file = Tempfile.new("key", "#{Rails.root}/tmp")
       key_file.write account_details.chef_server_key
       key_file.close
       Chef::Config[:client_key] = key_file.path #"#{File.dirname(__FILE__)}/../../script/joe_testing.pem"
