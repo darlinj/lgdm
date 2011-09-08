@@ -4,3 +4,4 @@ log/*
 tmp/
 coverage/
 .sass-cache/
+key20*
