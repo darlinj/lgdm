@@ -11,7 +11,7 @@ class ChefApi < Chef::Knife
       key_file = Tempfile.new("key", ".")
       key_file.write account_details.chef_server_key
       key_file.rewind
-      logger.info keyfile.read
+      Rails.logger.info keyfile.read
       key_file.close
       Chef::Config[:client_key] = key_file.path #"#{File.dirname(__FILE__)}/../../script/joe_testing.pem"
       Chef::Config[:node_name] = 'Joe'
