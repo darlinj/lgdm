@@ -1,10 +1,5 @@
 Given %r/^there are some chef accounts$/ do
   user = User.find_by_email("fred.flintstone@bedrock.com")
-  #ChefApiAccount.create(:label          => 'chef account one',
-                      #:chef_server_url => 'http://someurl',
-                      #:chef_server_key => 'some_key',
-                      #:chef_username   => 'Bill',
-                      #:user_id         => user.id )
   Factory.create(:chef_api_account, :label => 'chef account one',:user_id=>user.id)
   Factory.create(:chef_api_account, :label => 'A chef account',:user_id=>user.id)
 end
