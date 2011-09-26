@@ -1,6 +1,7 @@
 require 'simplecov'
 SimpleCov.start 'rails' do
   command_name "Cucumber #{Time.now}"
+  add_filter "/vendor/"
   add_filter "/factories/"
 end
 
