@@ -1,6 +1,7 @@
 Factory.define :chef_api_account do |chef_api_account|
   chef_api_account.label              'chef account one'
   chef_api_account.chef_server_url    'http://109.144.14.214:4000'
+  chef_api_account.chef_username      'Fred'
   chef_api_account.chef_server_key    %q{-----BEGIN RSA PRIVATE KEY-----
 MIIEogIBAAKCAQEAzraZyHf1otRz68mKP+FFtk9Inyt2T/zYEsp1Mzc++LE2Ih2v
 RuJ9Vb4IhdtbQbpNcQ+6uqazYkuQyl30rUarSOwg7uLEQXvOzMyFwseRFurmw0Vx
