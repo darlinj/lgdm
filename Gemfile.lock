@@ -299,6 +299,7 @@ DEPENDENCIES
   rails (= 3.1.0)
   rake (= 0.8.7)
   roodi
+  rspec
   rspec-rails
   ruby-debug19
   sass

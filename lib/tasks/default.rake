@@ -1,3 +1,4 @@
+require 'rspec/core/rake_task'
 Rake.application.instance_variable_get('@tasks').delete('default')
 
 task :default do
@@ -11,6 +12,8 @@ task :default do
   Rake::Task['coverage:check_coverage'].invoke
   Rake::Task[:ok].invoke
 end
+
+RSpec::Core::RakeTask.new(:spec)
 
 task :ok do
   red    = "\e[31m"

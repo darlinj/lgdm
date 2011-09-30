@@ -23,6 +23,7 @@ group  :test do
   gem 'heroku'
   gem 'launchy'
   gem 'roodi'
+  gem 'rspec'
   gem 'rspec-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'shoulda'
