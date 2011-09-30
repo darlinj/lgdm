@@ -21,4 +21,14 @@ class ChefApiAccountsController < ApplicationController
     end
   end
 
+  def edit
+    @chef_api_account = current_user.chef_api_accounts.find(params[:id])
+    @page = "chef_accounts"
+  end
+
+  def update
+    chef_api_account = current_user.chef_api_accounts.find(params[:id])
+    chef_api_account.update_attributes(params[:chef_api_account])
+    redirect_to :action => :index
+  end
 end

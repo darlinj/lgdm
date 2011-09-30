@@ -4,7 +4,7 @@
       <thead>
         <tr id=<%= account.id %>>
           <th class="top-left">Label</th>
-          <td class="top-right-light"><%= account.label%></td>
+          <td class="top-right-light"><%= link_to(account.label, edit_chef_api_account_path(account.id)) %></td>
         </tr>
         <tr>
           <th>Chef server URL</th>

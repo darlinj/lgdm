@@ -63,3 +63,22 @@ Then %r/^I should see that the create has failed$/ do
   page.should have_content('unsuccessful')
 end
 
+When /^I select an account$/ do
+  click_link("cloud1")
+end
+
+Then /^I should see the details of the account$/ do
+  find_field('Region').value.should == 'bellybutton'
+end
+
+When /^I change a value$/ do
+  fill_in("Region", :with => "West Indies")
+  click_button("Update")
+end
+
+Then /^I should see that the value has changed$/ do
+  page.should have_content('West Indies')
+end
+
+
+

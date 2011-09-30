@@ -21,4 +21,15 @@ class CloudAccountsController < ApplicationController
     end
   end
 
+  def edit
+    @cloud_account = current_user.cloud_accounts.find(params[:id])
+    @page = "cloud_accounts"
+  end
+
+  def update
+    cloud_account = current_user.cloud_accounts.find(params[:id])
+    cloud_account.update_attributes(params[:cloud_account])
+    redirect_to :action => :index
+  end
+
 end

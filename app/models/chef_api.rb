@@ -26,6 +26,7 @@ class ChefApi < Chef::Knife
     response.attribute?(:roles) ? response.roles : []
   rescue Net::HTTPServerException => e
     return [] if e.response.code == "404"
+    debugger
     return "Unable to get chef data" if e.response.code == "401"
   end
 end
