@@ -69,9 +69,10 @@ end
 describe User, "create_chef_account" do
   before do
     @user = User.create!(:email => "something.that@lookslike.an.email.com", :password => "secret", :password_confirmation => "secret")
-    @params = {"label"          =>"my_account",
+    @params = {"label"           =>"my_account",
                "chef_server_url" =>"http://doo.bar.com",
                "chef_server_key" =>"blah blah",
+               "chef_username"   =>"blah"
     }
   end
 

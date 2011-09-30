@@ -3,5 +3,6 @@ class ChefApiAccount < ActiveRecord::Base
   validates_presence_of :label
   validates_presence_of :chef_server_url
   validates_presence_of :chef_server_key
+  validates_presence_of :chef_username
 
 end
