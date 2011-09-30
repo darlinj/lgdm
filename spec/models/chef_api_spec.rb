@@ -22,5 +22,12 @@ describe ChefApi, "roles_for_server" do
       @chef.roles_for_server("i-000CiS92").should == []
     end
   end
+
+  it "should return a failure to get info from server" do
+    chef = ChefApi.new(Factory(:chef_api_account, :chef_server_key => "nothing that will work"))
+    VCR.use_cassette("chef_client_unauthorised") do
+      chef.roles_for_server("i-000CiS92").should == "Unable to get chef data"
+    end
+  end
 end
 

@@ -1,0 +1,47 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://109.144.14.214:4000//nodes/i-000CiS92
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      x-ops-sign:
+      - version=1.0
+      x-ops-userid:
+      - Fred
+      x-ops-timestamp:
+      - '2011-09-30T08:26:34Z'
+      x-ops-content-hash:
+      - 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+      x-ops-authorization-1:
+      - zhpoPch/1hZtsHlILRlSDeFLDghou3dF6Dtfd2c+j48XiBKPqKfREZqKd7DI
+      x-ops-authorization-2:
+      - TarHphxdxFMPkRwH4KFzwPrkdDiItVcG/8lu+vykA7jkOQpgyOnBMINmbPtJ
+      x-ops-authorization-3:
+      - CPm2W8CrY3Rt2H/MsvoKa3gKdIxVisI2ozb4eso85Qk9g572MpfGI4M4n/p8
+      x-ops-authorization-4:
+      - XfPHvRwcU2KNC75CBugg7wKuMHToV2TuSa735LajOr+EPoYlc4SsXrDJHODW
+      x-ops-authorization-5:
+      - ajPaDsNi6AWNqX2WV1zRQDQEKZOjXMMmR1Us/5CAMobI5WS/CsmFRggVe5rr
+      x-ops-authorization-6:
+      - vwDr5P60zy3mz4bSVeeZJPgDN3k+t0e7WrKzeUHi5g==
+      host:
+      - 109.144.14.214:4000
+      x-chef-version:
+      - 0.10.4
+      user-agent:
+      - Chef Knife/0.10.4 (ruby-1.9.2-p290; ohai-0.6.4; x86_64-linux; +http://opscode.com)
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 401
+      message: Unauthorized
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      server:
+      - thin 1.2.11 codename Bat-Shit Crazy
+    body: ! '{"error":["Failed to authenticate. Ensure that your client key is valid."]}'
+    http_version: '1.1'
+  ignored: false

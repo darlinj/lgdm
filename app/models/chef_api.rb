@@ -25,6 +25,7 @@ class ChefApi < Chef::Knife
     response = rest.get_rest("/nodes/#{server_id}")
     response.attribute?(:roles) ? response.roles : []
   rescue Net::HTTPServerException => e
-    [] if e.response.code == "404"
+    return [] if e.response.code == "404"
+    return "Unable to get chef data" if e.response.code == "401"
   end
 end
