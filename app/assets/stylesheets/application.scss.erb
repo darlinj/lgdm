@@ -14,7 +14,7 @@ body {
 .header {
   width: 820px;
   margin: auto;
-  background-image: url('main_background.png')
+  background-image: url(<%= asset_path "main_background.png" %>)
 }
 
 .status {
@@ -95,18 +95,18 @@ table
 
 thead .top-left
 {
-	background: $darkest-green url('left.png') left -1px no-repeat;
+	background: $darkest-green url(<%= asset_path "left.png" %>) left -1px no-repeat;
 }
 
 thead .top-right-dark
 {
-	background: $darkest-green url('right-dark.png') right -1px no-repeat;
+	background: $darkest-green url(<%= asset_path "right-dark.png" %>) right -1px no-repeat;
   border-top: 0px;
 }
 
 thead .top-right-light
 {
-	background: $mid-green url('right-light.png') right -1px no-repeat;
+	background: $mid-green url(<%= asset_path "right-light.png" %>) right -1px no-repeat;
   border-top: 0px;
 }
 
@@ -129,17 +129,17 @@ td
 
 tfoot .rounded-foot-left-light
 {
-	background: $mid-green url('botleft-light.png') left bottom no-repeat;
+	background: $mid-green url(<%= asset_path "botleft-light.png" %>) left bottom no-repeat;
 }
 
 tfoot .rounded-foot-left-dark
 {
-	background: $darkest-green url('botleft-dark.png') left bottom no-repeat;
+	background: $darkest-green url(<%= asset_path "botleft-dark.png" %>) left bottom no-repeat;
 }
 
 tfoot .rounded-foot-right
 {
-	background: $mid-green url('botright.png') right bottom no-repeat;
+	background: $mid-green url(<%= asset_path "botright.png" %>) right bottom no-repeat;
 }
 
 tbody tr:hover td
