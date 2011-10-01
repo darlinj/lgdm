@@ -1,29 +1,22 @@
-<table>
-  <thead>
-    <tr>
-      <th class="top-left">ID</th>
-      <th>IP</th>
-      <th>Key Name</th>
-      <th>Roles</th>
-      <th class="top-right-dark">State</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @servers.each do |server| %>
-      <tr id=<%= server.id %>>
-        <td><%= server.id %></td>
-        <td><%= server.dns_name %></td>
-        <td><%= server.key_name%></td>
-        <td><%= server.roles %></td>
-        <td><%= server.state%></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td class="rounded-foot-left-light"></td>
-      <td colspan="3"></td>
-      <td class="rounded-foot-right"></td>
-    </tr>
-  </tfoot>
-</table>
+<% if @cloud_accounts && !@cloud_accounts.empty? %>
+  <script>
+    $(document).ready(function() {
+      <% @cloud_accounts.each do |account| %>
+        $.get('<%= servers_path( :cloud_id => account.id ) %>', function(data) {
+          $('#cloud_list_<%= account.id %>').html(data);
+        });
+      <% end %>
+    })
+  </script>
+  <% @cloud_accounts.each do |account| %>
+    <div id="cloud_list_<%= account.id %>" class="server_list">
+      <table>
+        <thead>
+          <tr>
+            <th>Downloading data for <%= account.label %>...</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  <% end %>
+<% end %>

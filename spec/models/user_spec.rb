@@ -121,6 +121,7 @@ describe User, "cloud_servers" do
     @cloud = mock(Cloud)
     @chef_api = mock(ChefApi)
     @cloud_account = Factory(:cloud_account, :user_id => @user.id)
+    @specific_cloud_account = Factory(:cloud_account, :label => "my cloud", :user_id => @user.id)
     @chef_account = Factory(:chef_api_account, :user_id => @user.id)
     Cloud.stub(:new).and_return(@cloud)
     ChefApi.stub(:new).and_return(@chef_api)
@@ -132,10 +133,16 @@ describe User, "cloud_servers" do
     @user.cloud_servers
   end
 
+  it "should use the cloud_name to create the cloud if passed in" do
+    Cloud.should_receive(:new).with(@specific_cloud_account)
+    @user.cloud_servers(@specific_cloud_account.id)
+  end
+
   it "should create the  a cloud" do
     Cloud.should_receive(:new).with(@cloud_account)
     @user.cloud_servers
   end
+
 
   it "should create a chef" do
     ChefApi.should_receive(:new).with(@chef_account)

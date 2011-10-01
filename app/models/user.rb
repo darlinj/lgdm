@@ -26,8 +26,8 @@ class User < ActiveRecord::Base
     cloud.images
   end
 
-  def cloud_servers
-    Server.all(cloud, chef)
+  def cloud_servers(cloud_label=nil)
+    Server.all(cloud(cloud_label), chef)
   end
 
   def start_server ami
@@ -39,8 +39,12 @@ class User < ActiveRecord::Base
     Activation.activate(self).deliver
   end
 
-  def cloud
-    @cloud ||= Cloud.new(cloud_accounts.first)
+  def cloud(cloud_id=nil)
+    if cloud_id
+      @cloud ||= Cloud.new(cloud_accounts.find(cloud_id))
+    else
+      @cloud ||= Cloud.new(cloud_accounts.first)
+    end
   end
 
   def chef
