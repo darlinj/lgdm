@@ -14,9 +14,12 @@ require 'ruby-debug'
 
 class ChefServer < Chef::Knife
   def initialize
-    Chef::Config[:client_key] = "#{File.dirname(__FILE__)}/joe_testing.pem"
+    Chef::Config[:client_key] = "~/.chef/joe_live.pem"
     Chef::Config[:node_name] = 'Joe'
     Chef::Config[:chef_server_url] = 'http://109.144.14.214:4000' # testing
+    #Chef::Config[:client_key] = "#{File.dirname(__FILE__)}/joe_testing.pem"
+    #Chef::Config[:node_name] = 'Joe'
+    #Chef::Config[:chef_server_url] = 'http://109.144.14.214:4000' # testing
     @rest = Chef::REST.new(Chef::Config[:chef_server_url])
     super
   end
