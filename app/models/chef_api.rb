@@ -13,7 +13,8 @@ class ChefApi < Chef::Knife
       #key_file.rewind
       #Rails.logger.info key_file.read
       key_file.close
-      Chef::Config[:client_key] = "#{File.dirname(__FILE__)}/../../script/joe_testing.pem" #key_file.path #
+      #Chef::Config[:client_key] = "#{File.dirname(__FILE__)}/../../script/joe_testing.pem" #key_file.path #
+      Chef::Config[:client_key] = key_file.path
       Chef::Config[:node_name] = account_details.chef_username
       Chef::Config[:chef_server_url] = account_details.chef_server_url
       @rest = Chef::REST.new(Chef::Config[:chef_server_url])
