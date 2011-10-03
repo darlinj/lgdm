@@ -9,11 +9,12 @@
     })
   </script>
   <% @cloud_accounts.each do |account| %>
+    <h2><%= account.label %></h2>
     <div id="cloud_list_<%= account.id %>" class="server_list">
       <table>
         <thead>
           <tr>
-            <th>Downloading data for <%= account.label %>...</th>
+            <th>Downloading data...</th>
           </tr>
         </thead>
       </table>
