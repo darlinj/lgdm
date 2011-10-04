@@ -80,5 +80,7 @@ Then /^I should see that the value has changed$/ do
   page.should have_content('West Indies')
 end
 
-
+Then /^I should see that there are no images available$/ do
+  page.should have_content('nothing to see')
+end
 

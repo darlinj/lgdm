@@ -7,3 +7,8 @@ Feature: listing images
     When I go to the list of images
     Then I should see the list of images
     And I should not see images that are not machines
+
+  Scenario: Trying to list images when there is no cloud account configured
+    Given I am logged in
+    When I go to the list of images
+    Then I should see that there are no images available

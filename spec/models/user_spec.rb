@@ -115,6 +115,33 @@ describe User, "cloud_images" do
 
 end
 
+describe User, "cloud_images when there are no cloud accounts" do
+
+  before do
+    @user = Factory(:user)
+    #cloud = mock(Cloud, :images=>:some_images)
+    #Cloud.stub(:new).and_return(cloud)
+  end
+
+  def do_request
+    @user.cloud_images
+  end
+
+  #it "should query a cloud" do
+    #Cloud.should_receive(:new).with(@cloud_account)
+    #do_request
+  #end
+
+  #it "should return a list of images" do
+    #do_request.should == :some_images
+  #end
+  #
+  it "should return nill" do
+    do_request.should be_nil
+  end
+
+end
+
 describe User, "cloud_servers" do
   before do
     @user = Factory(:user)

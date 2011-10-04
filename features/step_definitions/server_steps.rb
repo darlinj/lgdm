@@ -11,6 +11,7 @@ When %r/^I go to the list of servers$/ do
     end
   else
     visit(path_to("server list"))
+    sleep 20
   end
 end
 

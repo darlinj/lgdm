@@ -1,29 +1,33 @@
-<table>
-  <thead>
-    <tr>
-      <th class="top-left">ID</th>
-      <th>Platform</th>
-      <th>Architecture</th>
-      <th>Location</th>
-      <th class="top-right-dark"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @images.each do |image| %>
-      <tr id=<%= image.id %>>
-        <td class="instance_id"><%= image.id %></td>
-        <td><%= image.platform%></td>
-        <td><%= image.architecture%></td>
-        <td><%= image.location%></td>
-        <td><%= link_to "run", servers_path(:image_id => image.id), :image_id => image.id, :method => :post %></td>
+<% if @images %>
+  <table>
+    <thead>
+      <tr>
+        <th class="top-left">ID</th>
+        <th>Platform</th>
+        <th>Architecture</th>
+        <th>Location</th>
+        <th class="top-right-dark"></th>
       </tr>
-    <% end %>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td class="rounded-foot-left-light"></td>
-      <td colspan="3"></td>
-      <td class="rounded-foot-right"></td>
-    </tr>
-  </tfoot>
+    </thead>
+    <tbody>
+      <% @images.each do |image| %>
+        <tr id=<%= image.id %>>
+          <td class="instance_id"><%= image.id %></td>
+          <td><%= image.platform%></td>
+          <td><%= image.architecture%></td>
+          <td><%= image.location%></td>
+          <td><%= link_to "run", servers_path(:image_id => image.id), :image_id => image.id, :method => :post %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="rounded-foot-left-light"></td>
+        <td colspan="3"></td>
+        <td class="rounded-foot-right"></td>
+      </tr>
+    </tfoot>
   </table>
+<% else %>
+  You don't have any cloud accounts configured yet so there is nothing to see here!
+<% end %>

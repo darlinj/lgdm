@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def cloud_images
+    return unless cloud
     cloud.images
   end
 
@@ -40,11 +41,9 @@ class User < ActiveRecord::Base
   end
 
   def cloud(cloud_id=nil)
-    if cloud_id
-      @cloud ||= Cloud.new(cloud_accounts.find(cloud_id))
-    else
-      @cloud ||= Cloud.new(cloud_accounts.first)
-    end
+    cloud_account = cloud_id ? cloud_accounts.find(cloud_id) : cloud_accounts.first
+    return unless cloud_account
+    @cloud ||= Cloud.new(cloud_account)
   end
 
   def chef
