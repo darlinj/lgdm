@@ -6,3 +6,6 @@ coverage/
 .sass-cache/
 key20*
 config/database.yml
+*.swp
+*.swo
+*.swn
