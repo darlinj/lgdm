@@ -37,11 +37,6 @@ Lgdm::Application.configure do
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
 
-  config.provider             = "BT"
-  config.region               = "pi-baynard-stable"
-  config.bt_access_key_id     = "xbZzzvlujsdOBjWVHeuQ"
-  config.bt_secret_access_key = "dU53SYb0Hvn8qRxxprOf_G4HUJtNp3hctgnFJQ.."
-
   config.email_sender         = "admin@leangreendeploymentmachine.com"
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }

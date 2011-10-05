@@ -11,7 +11,6 @@ When %r/^I go to the list of servers$/ do
     end
   else
     visit(path_to("server list"))
-    sleep 20
   end
 end
 
@@ -37,11 +36,9 @@ Given %r/^there are some servers on the cloud$/ do
 end
 
 Then %r/^I should see the servers$/ do
-  within("table") do
-    page.should have_content(@server1.id)
-    page.should have_content(@server2.id)
-    page.should have_content(@server3.id)
-  end
+  page.should have_content(@server1.id)
+  page.should have_content(@server2.id)
+  page.should have_content(@server3.id)
 end
 
 Given %r/^there is a chef account$/ do
