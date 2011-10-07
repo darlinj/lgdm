@@ -8,6 +8,8 @@ When %r/^I go to the list of servers$/ do
                      :third_server_id => @server3.id,
                      :server_with_no_roles_id => @server4.id}) do
       visit(path_to("server list"))
+      #This needs to be here to make capybara wait until the page has loaded
+      page.should have_content(@server1.id)
     end
   else
     visit(path_to("server list"))
@@ -15,11 +17,8 @@ When %r/^I go to the list of servers$/ do
 end
 
 Then %r/^I should see that the server has been started$/ do
-  within("table") do
     #save_and_open_page
     page.should have_content("pending")
-    #should test that there is one more row in the table
-  end
 end
 
 Given %r/^there are some servers on the cloud$/ do

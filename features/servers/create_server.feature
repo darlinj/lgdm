@@ -1,6 +1,7 @@
 Feature: Starting servers
   Creating a basic server
 
+  @javascript
   Scenario: creating a server
     Given I am logged in
     And there are server images available
