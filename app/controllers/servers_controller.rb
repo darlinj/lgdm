@@ -1,6 +1,5 @@
 class ServersController < ApplicationController
   def index
-    #cloud = params[:cloud] ? params[:cloud] : current_user.cloud_accounts.first
     @page = "servers"
     if (params[:cloud_id])
       @servers = current_user.cloud_servers(params[:cloud_id])

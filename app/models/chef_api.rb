@@ -3,6 +3,7 @@ require 'chef/node'
 require 'chef/knife'
 require 'chef/config'
 require 'tempfile'
+require 'yajl/json_gem'
 
 class ChefApi < Chef::Knife
 
@@ -23,7 +24,7 @@ class ChefApi < Chef::Knife
   end
 
   def roles_for_server server_id
-    response = rest.get_rest("/nodes/#{server_id}")
+    response = Chef::Node.json_create(rest.get_rest("/nodes/#{server_id}"))
     response.attribute?(:roles) ? response.roles : []
   rescue Net::HTTPServerException => e
     return [] if e.response.code == "404"
