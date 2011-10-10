@@ -1,4 +1,4 @@
-<table>
+<table class="server-table">
   <thead>
     <tr>
       <th class="top-left">ID</th>
@@ -11,8 +11,8 @@
   </thead>
   <tbody>
     <% @servers.each do |server| %>
-      <tr id=<%= server.id %>>
-        <td><%= server.id%></td>
+      <tr id=<%= server.id %> >
+        <td class="instance_id"><%= server.id%></td>
         <td><%= server.dns_name %></td>
         <td><%= server.key_name %></td>
         <td><%= server.groups %></td>

@@ -1,6 +1,6 @@
 <% if @cloud_accounts && !@cloud_accounts.empty? %>
   <% @cloud_accounts.each do |account| %>
-    <table>
+    <table class="cloud-account-table">
       <thead>
         <tr id=<%= account.id %>>
           <th class="top-left">Label</th>
