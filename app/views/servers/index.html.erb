@@ -4,6 +4,7 @@
       <% @cloud_accounts.each do |account| %>
         $.get('<%= servers_path( :cloud_id => account.id ) %>', function(data) {
           $('#cloud_list_<%= account.id %>').html(data);
+          $(".server-table").tablesorter();
         });
       <% end %>
     })
