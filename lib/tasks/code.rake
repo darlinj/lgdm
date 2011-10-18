@@ -22,7 +22,7 @@ namespace :code do
 
   desc "Checks for trailing spaces"
   task :trailing_spaces do
-    grep "app/*", "features/*", "lib/*", "spec/*"
+    grep "app/models/*","app/controllers/*", "app/views/*", "features/*", "lib/*", "spec/*"
   end
 
   def grep(*file_patterns)

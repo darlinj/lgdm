@@ -2,7 +2,7 @@ Given %r/^there are some accounts$/ do
   user = User.find_by_email("fred.flintstone@bedrock.com")
   CloudAccount.create(:label          => 'cloud1',
                       :provider       => 'BT',
-                      :region         => 'bellybutton',
+                      :region         => 'pi-baynard-stable',
                       :s3_url         => 'http://storage.fr002.baynard.cloud21cn.com:8080',
                       :ec2_url        => 'http://api.fr002.baynard.cloud21cn.com:8773',
                       :ec2_access_key => 'blahblahblahblahblahblahblah',
@@ -11,7 +11,7 @@ Given %r/^there are some accounts$/ do
 
   CloudAccount.create(:label          => 'cloud2',
                       :provider       => 'BT',
-                      :region         => 'bellybutton',
+                      :region         => 'pi-lax',
                       :s3_url         => 'http://storage.fr002.baynard.cloud21cn.com:8080',
                       :ec2_url        => 'http://api.fr002.baynard.cloud21cn.com:8773',
                       :ec2_access_key => 'blahblahblahblahblahblahblah',
@@ -34,8 +34,8 @@ end
 
 When %r/^I fill in valid account details$/ do
   fill_in("Label", :with => "cloudy cloud")
-  fill_in("Provider", :with => "BT")
-  fill_in("Region", :with => "East Indies")
+  select('BT', :from => 'Provider')
+  select('pi-lax', :from => 'Region')
   fill_in("S3 url", :with => "http://some.address:999/foo")
   fill_in("Ec2 url", :with => "http://some.address:999/foo")
   fill_in("Ec2 access key", :with => "blahblahblahblahblahblahblah")
@@ -50,8 +50,8 @@ end
 
 When %r/^I fill in INVALID account details$/ do
   fill_in("Label", :with => "")
-  fill_in("Provider", :with => "BT")
-  fill_in("Region", :with => "East Indies")
+  select('BT', :from => 'Provider')
+  select('pi-lax', :from => 'Region')
   fill_in("S3 url", :with => "http://some.address:999/foo")
   fill_in("Ec2 url", :with => "http://some.address:999/foo")
   fill_in("Ec2 access key", :with => "blahblahblahblahblahblahblah")
@@ -68,16 +68,16 @@ When /^I select an account$/ do
 end
 
 Then /^I should see the details of the account$/ do
-  find_field('Region').value.should == 'bellybutton'
+  find_field('Region').value.should == 'pi-baynard-stable'
 end
 
 When /^I change a value$/ do
-  fill_in("Region", :with => "West Indies")
+  select('pi-lax', :from => 'Region')
   click_button("Update")
 end
 
 Then /^I should see that the value has changed$/ do
-  page.should have_content('West Indies')
+  page.should have_content('pi-lax')
 end
 
 Then /^I should see that there are no images available$/ do
