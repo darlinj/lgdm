@@ -2,8 +2,8 @@
 <%= semantic_form_for(@cloud_account) do |form| %>
   <%= form.inputs do %>
     <%= form.input :label          %>
-    <%= form.input :provider ,  :as => :select,  :collection => ["BT", "EC2"] , :selected => "BT" %>
-    <%= form.input :region,  :as => :select,  :collection => ["pi-baynard-stable", "pi-lax"], :selected => "pi-baynard-stable" %>
+    <%= form.input :provider ,  :as => :select,  :collection => ["BT", "EC2"] , :selected => "BT", :include_blank =>false %>
+    <%= form.input :region,  :as => :select,  :collection => ["pi-baynard-stable", "pi-lax"], :selected => "pi-baynard-stable", :include_blank =>false %>
     <%= form.input :s3_url         %>
     <%= form.input :ec2_url        %>
     <%= form.input :ec2_access_key %>
