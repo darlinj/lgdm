@@ -6,7 +6,7 @@ gem 'fog', '0.5.0', :path => "vendor/fog"
 gem 'formtastic'
 gem "jquery-rails"
 gem 'pg'
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 gem 'rake', '0.8.7'
 gem 'sass'
 gem 'therubyracer'
